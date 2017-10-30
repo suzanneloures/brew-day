@@ -6,7 +6,7 @@ class Recipe (models.Model):
     type_brew = models.CharField(max_length=300)
     description = models.TextField()
 
-class Ingredient (models.Model):
+class Ingredient (models.Model):  # tipo de ingrediente criar 
     name = models.CharField(max_length=300)
     unity = models.FloatField() #Medida absoluta será medido em miligramas
     quantity = models.FloatField()
@@ -14,4 +14,5 @@ class Ingredient (models.Model):
 class Equipment (models.Model):
     name = models.CharField(max_length=300)
     capacity = models.FloatField()
+
    
