@@ -1,0 +1,77 @@
+nav ul li.ativo
+{
+    position: relative;
+    bottom: 0;
+    border-bottom: 3px solid #18ffff;
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+nav ul li.ativo a
+{
+    color: #FFFFFF;
+}
+
+nav ul li a
+{
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: .9rem;
+    color: #C5CAE9;
+}
+
+nav ul li:hover a
+{
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+
+/* header, main, footer {
+    padding-left: 240px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
+#nav-bar-logo {
+    width: 10rem;
+}
+
+#nav-bar-logo-s {
+    width: 10rem;
+}
+
+header ul li a i
+{
+    position: relative;
+    top: 9px;
+    padding-right: -35px;
+}
+
+header ul li ul li a i
+{
+    color: red;
+    position: relative;
+    top: 0px;
+    left: 2px;
+}
+header ul li ul li a
+{
+    position: relative;
+    left: -5px;
+}
+
+#nav-mobile li a:hover
+{
+    color: #039BE5;
+}
+
+#nav-mobile li:hover
+{
+    background-color: rgba(0,0,0,.1);
+}
+ */
