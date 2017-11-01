@@ -6,6 +6,7 @@ class Recipe (models.Model):
     title = models.CharField(max_length=300)
     type_brew = models.CharField(max_length=300)
     description = models.TextField()
+    id_equipment = models.ForeignKey('Equipment', null=True)
 
 class Ingredient (models.Model):  # tipo de ingrediente criar 
     name = models.CharField(max_length=300)
@@ -15,5 +16,9 @@ class Ingredient (models.Model):  # tipo de ingrediente criar
 class Equipment (models.Model):
     name = models.CharField(max_length=300)
     capacity = models.FloatField()
+
+#class Production (models.Model):
+    #quantity_brew = models.FloatField()
+    
 
    
