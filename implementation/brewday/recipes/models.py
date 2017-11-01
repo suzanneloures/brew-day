@@ -16,9 +16,12 @@ class Ingredient (models.Model):  # tipo de ingrediente criar
 class Equipment (models.Model):
     name = models.CharField(max_length=300)
     capacity = models.FloatField()
+    unit_dimension = models.TextField()
 
-#class Production (models.Model):
-    #quantity_brew = models.FloatField()
+class Production (models.Model):
+    quantity_brew = models.FloatField()
+    
+
     
 
    

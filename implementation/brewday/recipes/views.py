@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse 
 from django.contrib.auth.models import User
 
-def login(request):
+def access(request):
     if request.method == 'POST':
         id_user = request.POST['user'] #pega o valor inserido no campo email
         password =  request.POST['pass']

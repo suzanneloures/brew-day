@@ -19,7 +19,7 @@ from recipes import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', views.login),
+    url(r'^login/', views.access),
     url(r'^register/', views.register),
     url(r'^confirm/', views.confirm),
     url(r'^home/', views.home),
