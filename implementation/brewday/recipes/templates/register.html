@@ -25,13 +25,19 @@
 
 
 <body class="grey lighten-3">
-   
+  
 <div class="row">
 
   <div class="col s12 m10 offset-m1 l8 offset-l2 card-panel">
-    <p class="flow-text grey-text">Sign Up</p>
-
-    <form action="#" method="post" accept-charset="utf-8">
+    <p class="flow-text grey-text">Sign up</p>
+{% if erros %}
+   <div class="card-panel  red darken-1">
+      {% for erro in erros %}
+       <p class="white-text text-darken-2">{{erro}}</p>
+      {%endfor%}
+    </div>
+   {%endif%}
+    <form action="" method="post" accept-charset="utf-8">
       {% csrf_token%}
       <div class="row">
 

@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse 
 from django.contrib.auth.models import User
+from django.core.validators import validate_email
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 def access(request):
     if request.method == 'POST':
@@ -9,10 +12,13 @@ def access(request):
         password =  request.POST['pass']
         auth_user = authenticate(request, username = id_user, password = password)
         if auth_user is None:
-            return render(request, "register.html")
+            return render(request, "login.html", {"erro": True})
         else:
             login(request,auth_user)
-            return render(request, "home.html")
+            if request.user.is_superuser:
+                return HttpResponseRedirect(reverse('admin:index'))
+            else:
+                return render(request, "home.html")
     else:
         return render (request, "login.html")
 
@@ -24,11 +30,26 @@ def register(request):
         lname = request.POST['lname']
         email = request.POST['email']
         password = request.POST['pass']
-        user = User.objects.create_user(email,email,password)
-        user.first_name = name
-        user.last_name = lname
-        user.save() 
-        return render(request, "confirm.html" )
+        erros = []
+        try:
+            validate_email(email)
+        except:
+            erros.append('Email is invalid')
+        if(len(name) == 0):
+            erros.append("Name can't be blank")
+        if(len(lname) == 0):
+            erros.append("Last Name can't be blank")
+        if(len(password) == 0):
+            erros.append("Password can't be blank")
+
+        if(len(erros)==0):
+            user = User.objects.create_user(email,email,password)
+            user.first_name = name
+            user.last_name = lname
+            user.save() 
+            return render(request, "confirm.html" )
+        else:
+            return render(request, "register.html",{'erros': erros})
 
 def confirm(request):
 	return render(request, "confirm.html")

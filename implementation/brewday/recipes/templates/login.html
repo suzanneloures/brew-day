@@ -47,6 +47,11 @@
           <form method="post" accept-charset="utf-8">                       <br>
           {% csrf_token%}
             <div class="row">
+              {% if erro %}
+                <div class="card-panel  red darken-1">
+                    <span class="white-text text-darken-2">Invalid credentials</span>
+                  </div>
+                {%endif%}
               <div class="input-field col s12">
                 <i class="material-icons prefix">person</i>
                 <input id="icon_user" type="text" name="user" value="" class="validate">
