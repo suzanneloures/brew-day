@@ -12,6 +12,7 @@ class Ingredient (models.Model):  # tipo de ingrediente criar
     name = models.CharField(max_length=300)
     unity = models.FloatField() #Medida absoluta será medido em miligramas
     quantity = models.FloatField()
+    type_ingredient = models.CharField(max_length=300)
 
 class Equipment (models.Model):
     name = models.CharField(max_length=300)
