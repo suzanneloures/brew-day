@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href=" {% static "/css/materialize.min.css"  media="screen,projection" %}">
+  	<link rel="stylesheet" href=" {% static "/css/estilo.css"  media="screen,projection" %}">
+    <link rel="stylesheet" href=" {% static "/css/app.css"  media="screen,projection" %}">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<script type="text/javascript" scr =" {% static "/js/jquery.min.js" %}" ></script>
+  	<script type="text/javascript" scr =" {% static "/js/jquery.maskedinput.js" %}" ></script>
+    <script type="text/javascript" scr =" {% static "/js/masks.js" %}" ></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-60713364-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+<body class="grey lighten-3">
+
+  <!-- Barra de navegação lateral -->
+    <ul id="slide-out" class="side-nav fixed">
+        <li><div class="user-view">
+          <div class="background">
+           <img src="/Users/Daniel/brew-day/implementation/brewday/recipes/static/img/logo.png">
+        </div>
+          <a href="#!user"><img class="circle" src="/Users/Daniel/brew-day/implementation/brewday/recipes/static/img/user.png"></a>
+          <a href="#!name"><span class="white-text name">Daniel Guedes</span></a>
+          <a href="#!email"><span class="white-text email">exemplo@gmail.com</span></a>
+        </div></li>
+
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">Brew Time</a></li>
+        <li><a href="#!"><i class="material-icons">playlist_add_check</i>Recipe</a></li>
+        <li><a href="#!"><i class="material-icons">store</i>Ingredient</a></li>
+        <li><a href="#!"><i class="material-icons">assignment</i>Equipment</a></li>
+        <li><a href="#!"><i class="material-icons">insert_chart</i>Production</a></li>
+
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">More</a></li>
+        <li><a class="waves-effect" href="#!">Settings</a></li>
+        <li><a class="waves-effect" href="#!">Logout</a></li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="large material-icons">menu</i></a>
+
+<!-- Formulário -->
+<form action="#" method="post" accept-charset="utf-8">
+  <fieldset>
+    <div class="row">
+
+      <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
+
+<!-- Nome da Receita -->
+        <p class="flow-text grey-text center">Recipe Register</p>
+            <div class="input-field col s12 m12 l12">
+              <input type="text" name="name" value="" id="inomerecipe" autofocus />
+              <label for="inomerecipe">Recipe Name</label>
+            </div>
+
+<!-- Nome do Malt -->
+    		 <div class="input-field col s6 m6 l6">
+            <input type="text" name="maltname" value="" id="inomemalt" />
+            <label for="inomemalt">Malt</label>
+         </div>
+
+<!-- Quantidade do Malt -->
+         <div class="input-field col s3 m3 l3">
+            <input type="number" name="maltquantity" value="" id="iquantitymalt" />
+            <label for="iquantitymalt">Quantity</label>
+         </div>
+
+<!-- Tipo da medida -->
+         <div class="col s3 m3 l3">
+           <form>
+            <div>
+             <input type="radio" id="imeasuregramsmalt" name="maltgrams" value="grams">
+             <label for="imeasuregramsmalt">Grams</label>
+
+             <input type="radio" id="imeasurekilogramsmalt" name="maltkilograms" value="kilograms">
+             <label for="imeasurekilogramsmalt">Kilograms</label>
+
+            </div>
+           </form>
+        </div>
+
+<!-- Nome do Hops -->
+        <div class="input-field col s6 m6 l6">
+          <input type="text" name="hopsname" value="" id="inomehop" />
+          <label for="inomehop">Hop</label>
+        </div>
+
+<!-- Quantidade do Hops -->
+        <div class="input-field col s3 m3 l3">
+           <input type="number" name="hopsquantity" value="" id="iquantityhops" />
+           <label for="iquantityhops">Quantity</label>
+        </div>
+
+<!-- Tipo da medida -->
+        <div class="col s3 m3 l3">
+          <form>
+           <div>
+            <input type="radio" id="imeasuregramshops" name="hopsgrams" value="grams">
+            <label for="imeasuremgramshops">Grams</label>
+
+            <input type="radio" id="imeasurekilogramshops" name="hopskilograms" value="kilograms">
+            <label for="imeasurekilogramshops">Kilograms</label>
+
+           </div>
+          </form>
+       </div>
+
+<!-- Nome do Yeast -->
+            <div class="input-field col s6 m6 l6">
+              <input type="text" name="yeastname" value="" id="inomeyeast"  />
+              <label for="inomeyeast">Yeast</label>
+            </div>
+
+<!-- Quantidade do Yeast -->
+            <div class="input-field col s3 m3 l3">
+               <input type="number" name="yeastquantity" value="" id="iquantityyeast" />
+               <label for="iquantityyeast">Quantity</label>
+            </div>
+
+<!-- Tipo da medida -->
+            <div class="col s3 m3 l3">
+              <form>
+               <div>
+                <input type="radio" id="imeasuregramsyeast" name="yeastgrams" value="grams">
+                <label for="imeasuremgramsyeast">Grams</label>
+
+                <input type="radio" id="imeasurekilogramsyeast" name="yeastkilograms" value="kilograms">
+                <label for="imeasurekilogramsyeast">Kilograms</label>
+
+               </div>
+              </form>
+            </div>
+
+<!-- Nome do Sugar -->
+            <div class="input-field col s6 m6 l6">
+              <input type="text" name="sugarname" value="" id="inomesugar"  />
+              <label for="inomesugar">Sugar</label>
+            </div>
+
+<!-- Quantidade do Sugar -->
+            <div class="input-field col s3 m3 l3">
+               <input type="number" name="sugarquantity" value="" id="iquantitysugar" />
+               <label for="iquantitysugar">Quantity</label>
+            </div>
+
+<!-- Tipo da medida -->
+            <div class="col s3 m3 l3">
+              <form>
+               <div>
+                <input type="radio" id="imeasuregramssugar" name="sugargrams" value="grams">
+                <label for="imeasuremgramssugar">Grams</label>
+
+                <input type="radio" id="imeasurekilogramssugar" name="sugarkilograms" value="kilograms">
+                <label for="imeasurekilogramssugar">Kilograms</label>
+
+               </div>
+              </form>
+            </div>
+
+<!-- Nome do Additive -->
+            <div class="input-field col s6 m6 l6">
+              <input type="text" name="additivename" value="" id="inomeadditive"  />
+              <label for="inomeadditive">Additive</label>
+            </div>
+
+<!-- Quantidade do Additive -->
+            <div class="input-field col s3 m3 l3">
+               <input type="number" name="additivequantity" value="" id="iquantityadditive" />
+               <label for="iquantityadditive">Quantity</label>
+            </div>
+
+<!-- Tipo da medida -->
+            <div class="col s3 m3 l3">
+              <form>
+               <div>
+                <input type="radio" id="imeasuregramsadditive" name="additivegrams" value="grams">
+                <label for="imeasuremgramsadditive">Grams</label>
+
+                <input type="radio" id="imeasurekilogramsadditive" name="additivekilograms" value="kilograms">
+                <label for="imeasurekilogramsadditive">Kilograms</label>
+
+               </div>
+              </form>
+            </div>
+
+      </div>
+
+          <div class="row">
+            <div class="col s12 m10 offset-m1 l7 offset-l4">
+              <input type="submit" name="" value="Cancel" class="btn left amber accent-4"  />
+              <input type="submit" name="" value="Submit" class="btn right amber accent-4"  />
+            </div>
+          </div>
+      </div>
+  </fieldset>
+</form>
+
+    <!-- footer here -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	  <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
+	  <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
+
+    <script type="text/javascript"  src=" {% static "js/materialize.min.js"  media="screen,projection" %}"></script>
+
+  	<script type="text/javascript" scr =" {% static "js/jquery.quicksearch.js" %}" ></script>
+	  <script type="text/javascript" scr =" {% static "/js/jquery.jscroll.min.js" %}" ></script>
+    <script type="text/javascript" charset="utf-8">
+      $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+        $("select").material_select();
+        $('input#id_search').quicksearch('ul#quicksearch li.collection-item');
+        $(".scrollspy").scrollSpy();
+        $('.infinite-scroll').jscroll();
+      });
+    </script>
+  </body>
+</html>
