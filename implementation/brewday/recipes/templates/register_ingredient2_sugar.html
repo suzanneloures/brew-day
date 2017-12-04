@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,9 +30,9 @@
     <ul id="slide-out" class="side-nav fixed">
         <li><div class="user-view">
           <div class="background">
-           <img src="{% static"/img/logo.png" %}">
+          <img src="{% static "img/logo.png" %}">
         </div>
-          <a href="#!user"><img class="circle" src="/Users/Daniel/brew-day/implementation/brewday/recipes/static/img/user.png"></a>
+          <a href="#!user"><img class="circle" src="{% static "img/user.png" %}"></a>
           <a href="#!name"><span class="white-text name">Daniel Guedes</span></a>
           <a href="#!email"><span class="white-text email">exemplo@gmail.com</span></a>
         </div></li>
@@ -57,34 +58,34 @@
 
       <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
 
-<!-- Nome do Additives -->
-        <p class="flow-text grey-text center">Additives Register</p>
+<!-- Nome do Sugar -->
+        <p class="flow-text grey-text center">Sugar Register</p>
             <div class="input-field col s12 m12 l12">
-              <input type="text" name="additivesname" value="" id="inomeadditives" autofocus />
-              <label for="inomeadditives">Additives Name</label>
+              <input type="text" name="sugarname" value="" id="inomesugar" autofocus />
+              <label for="inomesugar">Sugar Name</label>
             </div>
 
-<!-- Tipo do Additives -->
+<!-- Tipo do Sugar -->
     		 <div class="input-field col s6 m6 l6">
-            <input type="text" name="additivestype" value="" id="itypeadditives" />
-            <label for="itypeadditives">Type</label>
+            <input type="text" name="sugartype" value="" id="itypesugar" />
+            <label for="itypesugar">Type</label>
          </div>
 
-<!-- Quantidade do Additives -->
+<!-- Quantidade do Sugar -->
          <div class="input-field col s3 m3 l3">
-            <input type="number" name="additivesquantity" value="" id="iquantityadditives" />
-            <label for="iquantityadditives">Quantity</label>
+            <input type="number" name="sugarquantity" value="" id="iquantitysugar" />
+            <label for="iquantitysugar">Quantity</label>
          </div>
 
 <!-- Tipo da medida -->
          <div class="col s3 m3 l3">
            <form>
             <div>
-             <input type="radio" id="imeasuregramsadditives" name="additivesgrams" value="grams">
-             <label for="imeasuregramsadditives">Grams</label>
+             <input type="radio" id="imeasuregramssugar" name="sugargrams" value="grams">
+             <label for="imeasuregramssugar">Grams</label>
 
-             <input type="radio" id="imeasurekilogramsadditives" name="additiveskilograms" value="kilograms">
-             <label for="imeasurekilogramsadditives">Kilograms</label>
+             <input type="radio" id="imeasurekilogramssugar" name="sugarkilograms" value="kilograms">
+             <label for="imeasurekilogramssugar">Kilograms</label>
 
             </div>
            </form>
@@ -93,8 +94,8 @@
 
 <!-- Descrição -->
         <div class="input-field col s12 m12 l12">
-           <input type="text" name="additivesdescription" value="" id="idescriptionadditives" />
-           <label for="idescriptionadditives">Description</label>
+           <input type="text" name="sugardescription" value="" id="idescriptionsugar" />
+           <label for="idescriptionsugar">Description</label>
         </div>
 
         <div class="row">

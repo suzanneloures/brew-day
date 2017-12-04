@@ -59,3 +59,22 @@ def home(request):
 
 def index(request):
 	return render(request, "index.html")
+
+def recipes(request):
+	return render(request, "recipes2.html")
+
+def register_ingredient1(request):
+	return render(request, "register_ingredient2_additives.html")
+
+def register_ingredient2(request):
+	return render(request, "register_ingredient2_hops.html")
+
+def register_ingredient3(request):
+	return render(request, "register_ingredient2_malt.html")
+
+def register_ingredient4(request):
+	return render(request, "register_ingredient2_sugar.html")
+
+def register_ingredient5(request):
+	return render(request, "register_ingredient2_yeasts.html")
+
