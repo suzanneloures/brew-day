@@ -17,11 +17,15 @@ class Ingredient (models.Model):  # tipo de ingrediente criar
 class Equipment (models.Model):
     name = models.CharField(max_length=300)
     capacity = models.FloatField()
-    unit_dimension = models.TextField()
+    unit_dimension = models.CharField(max_length=45)
 
 class Production (models.Model):
     quantity_brew = models.FloatField()
-    
+    id_recipe = models.ForeignKey('Recipe', null=True)
+
+class Recipe_Ingredient (models.Model):
+    id_recipe = models.ForeignKey('Recipe', null=True)
+    id_ingredient = models.ForeignKey('Ingredient', null=True)
 
     
 

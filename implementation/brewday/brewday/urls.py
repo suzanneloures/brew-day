@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^register/', views.register),
     url(r'^confirm/', views.confirm),
     url(r'^home/', views.home),
-    url(r'^firstpage/', views.firstpage),
+    url(r'^index/', views.index),
+    
 ]

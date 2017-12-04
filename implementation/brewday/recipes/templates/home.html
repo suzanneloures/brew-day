@@ -7,9 +7,8 @@
   <title>BrewDay!</title>
 
   <!-- CSS  -->
-  <link rel="stylesheet" href=" {% static "/css/materialize.min.css"  media="screen,projection" %}">
-  <link rel="stylesheet" href=" {% static "/css/estilo.css"  media="screen,projection" %}">
-  <link rel="stylesheet" href=" {% static "/css/app.css"  media="screen,projection" %}">
+  <link rel="stylesheet" href=" {% static "/css/materialize.css"  media="screen,projection" %}">
+  <link rel="stylesheet" href="{% static "/css/style.css"  media="screen,projection" %}">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <script>
@@ -24,126 +23,39 @@
 </head>
 <body>
 
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center amber-text text-accent-4">BrewDay!</h1>
-        <div class="row center">
-          <h5 class="header col s12 amber-text text-accent-4">A modern solution for your brewing!</h5>
-        </div>
-        <div class="row center">
-          <a href="login.html" id="start-button" class="btn-large waves-effect waves-light amber accent-3">Get Started</a>
-        </div>
-        <br><br>
-
+<!-- Barra de navegação lateral -->
+  <ul id="slide-out" class="side-nav fixed">
+      <li><div class="user-view">
+        <div class="background">
+         <img src="{% static "img/logo.png" %}">
       </div>
-    </div>
-    <div class="parallax"><img src="{% static "img/fundo01.jpg" %}" alt="Unsplashed background img 1"></div>
-  </div>
+        <a href="#!user"><img class="circle" src="{% static "img/user.png" %}"></a>
+        <a href="#!name"><span class="white-text name">Daniel Guedes</span></a>
+        <a href="#!email"><span class="white-text email">exemplo@gmail.com</span></a>
+      </div></li>
 
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Brew Time</a></li>
+      <li><a href="#!"><i class="material-icons">playlist_add_check</i>Recipe</a></li>
+      <li><a href="#!"><i class="material-icons">store</i>Ingredient</a></li>
+      <li><a href="#!"><i class="material-icons">assignment</i>Equipment</a></li>
+      <li><a href="#!"><i class="material-icons">insert_chart</i>Production</a></li>
 
-  <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">playlist_add_check</i></h2>
-            <h5 class="center">Save your Recipes</h5>
-
-            <p class="light">Be able to save your own recipe and make changes anytime you want</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">store</i></h2>
-            <h5 class="center">Organize your Ingredients</h5>
-
-            <p class="light">Control and manage your storage</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">insert_chart</i></h2>
-            <h5 class="center">Control your Production</h5>
-
-            <p class="light">Make your beer and let us do the rest</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header center amber-text text-accent-4">Simples and Efficient</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="{% static "img/fundo02.jpg" %}" alt="Unsplashed background img 2"></div>
-  </div>
-
-  <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4 class="header center brown-text">O que é o BrewDay</h4>
-          <p class="left-align light">Sobre o projeto</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <footer class="page-footer amber">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">About Us</h5>
-          <p class="grey-text text-lighten-4">We are a team of students from the federal university of bahia working on this project for the competition SCORE 2018.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Pages</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Home</a></li>
-            <li><a class="white-text" href="#!">Sign up</a></li>
-            <li><a class="white-text" href="#!">Login</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Facebook</a></li>
-            <li><a class="white-text" href="#!">Twitter</a></li>
-            <li><a class="white-text" href="#!">Instagram</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by</a>
-      </div>
-    </div>
-  </footer>
-
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">More</a></li>
+      <li><a class="waves-effect" href="#!">Settings</a></li>
+      <li><a class="waves-effect" href="#!">Logout</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="large material-icons">menu</i></a>
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="/Users/Daniel/Desktop/teste-brewday/static/js/materialize.js"></script>
-  <script src="/Users/Daniel/Desktop/teste-brewday/static/js/init.js"></script>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	  <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
+	  <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
 
+    <script type="text/javascript"  src=" {% static "js/materialize.min.js"  media="screen,projection" %}"></script>
+  
+  	<script type="text/javascript" scr =" {% static "js/jquery.quicksearch.js" %}" ></script>
+	  <script type="text/javascript" scr =" {% static "/js/jquery.jscroll.min.js" %}" ></script>
   </body>
 </html>
