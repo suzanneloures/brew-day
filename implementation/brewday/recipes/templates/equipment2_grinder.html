@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href=" {% static "/css/materialize.min.css"  media="screen,projection" %}">
+  	<link rel="stylesheet" href=" {% static "/css/estilo.css"  media="screen,projection" %}">
+    <link rel="stylesheet" href=" {% static "/css/app.css"  media="screen,projection" %}">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<script type="text/javascript" scr =" {% static "/js/jquery.min.js" %}" ></script>
+  	<script type="text/javascript" scr =" {% static "/js/jquery.maskedinput.js" %}" ></script>
+    <script type="text/javascript" scr =" {% static "/js/masks.js" %}" ></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-60713364-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+<body class="grey lighten-3">
+
+  <!-- Barra de navegação lateral -->
+    <ul id="slide-out" class="side-nav fixed">
+        <li><div class="user-view">
+          <div class="background">
+           <img src="{% static"/img/logo.png" %}">
+        </div>
+          <a href="#!user"><img class="circle" src="{% static"/img/user.png" %}"></a>
+          <a href="#!name"><span class="white-text name">Daniel Guedes</span></a>
+          <a href="#!email"><span class="white-text email">exemplo@gmail.com</span></a>
+        </div></li>
+
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">Brew Time</a></li>
+        <li><a href="#!"><i class="material-icons">playlist_add_check</i>Recipe</a></li>
+        <li><a href="#!"><i class="material-icons">store</i>Ingredient</a></li>
+        <li><a href="#!"><i class="material-icons">assignment</i>Equipment</a></li>
+        <li><a href="#!"><i class="material-icons">insert_chart</i>Production</a></li>
+
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">More</a></li>
+        <li><a class="waves-effect" href="#!">Settings</a></li>
+        <li><a class="waves-effect" href="#!">Logout</a></li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="large material-icons">menu</i></a>
+
+<!-- Formulário -->
+<form action="#" method="post" accept-charset="utf-8">
+  <fieldset>
+    <div class="row">
+
+      <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
+
+<!-- Nome do Filter-->
+        <p class="flow-text grey-text center">Grinder Register</p>
+            <div class="input-field col s12 m12 l12">
+              <input type="text" name="grindername" value="" id="inomegrinder" autofocus />
+              <label for="inomegrinder">Grinder Name</label>
+            </div>
+
+<!-- Tipo do Filter -->
+    		 <div class="input-field col s6 m6 l6">
+            <input type="text" name="grindertype" value="" id="itypegrinder" />
+            <label for="itypegrinder">Type</label>
+         </div>
+
+<!-- Capacidade do Filter -->
+         <div class="input-field col s2 m2 l2">
+            <input type="number" name="grindervolume" value="" id="ivolumegrinder" />
+            <label for="ivolumefilter">Volume</label>
+         </div>
+
+<!-- Tipo da medida -->
+         <div class="col s4 m4 l4">
+           <form>
+            <div>
+             <input type="radio" id="imeasurelitregrinder" name="grinderlitre" value="litre">
+             <label for="imeasurelitregrinder">Litre (l)</label>
+
+             <input type="radio" id="imeasurecubicmetregrinder" name="grindercubicmetre" value="cubicmetre">
+             <label for="imeasurecubicmetregrinder">Cubic metre (m³)</label>
+
+             <input type="radio" id="imeasuregallongrinder" name="grindergallon" value="gallon">
+             <label for="imeasuregallongrinder">Gallon (gal)</label>
+
+            </div>
+           </form>
+        </div>
+
+<!-- Descrição -->
+        <div class="input-field col s12 m12 l12">
+           <input type="text" name="grinderdescription" value="" id="idescriptiongrinder" />
+           <label for="idescriptiongrinder">Description</label>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m10 offset-m1 l7 offset-l2">
+              <input type="submit" name="" value="Cancel" class="btn left col offset-l2 amber accent-4"  />
+              <input type="submit" name="" value="Submit" class="btn right col offset-l1 amber accent-4"  />
+            </div>
+          </div>
+      </div>
+  </fieldset>
+</form>
+
+    <!-- Footer here -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
+    <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
+
+    <script type="text/javascript"  src=" {% static "js/materialize.min.js"  media="screen,projection" %}"></script>
+
+    <script type="text/javascript" scr =" {% static "js/jquery.quicksearch.js" %}" ></script>
+    <script type="text/javascript" scr =" {% static "/js/jquery.jscroll.min.js" %}" ></script>
+    <script type="text/javascript" charset="utf-8">
+      $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+        $("select").material_select();
+        $('input#id_search').quicksearch('ul#quicksearch li.collection-item');
+        $(".scrollspy").scrollSpy();
+        $('.infinite-scroll').jscroll();
+      });
+    </script>
+  </body>
+</html>
