@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,9 +30,9 @@
     <ul id="slide-out" class="side-nav fixed">
         <li><div class="user-view">
           <div class="background">
-           <img src="{% static"/img/logo.png" %}">
+          <img src="{% static "img/logo.png" %}">
         </div>
-          <a href="#!user"><img class="circle" src="{% static"/img/user.png" %}"></a>
+          <a href="#!user"><img class="circle" src="{% static "img/user.png" %}"></a>
           <a href="#!name"><span class="white-text name">Daniel Guedes</span></a>
           <a href="#!email"><span class="white-text email">exemplo@gmail.com</span></a>
         </div></li>
@@ -58,21 +59,21 @@
       <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
 
 <!-- Nome do Filter-->
-        <p class="flow-text grey-text center">Grinder Register</p>
+        <p class="flow-text grey-text center">Filter Register</p>
             <div class="input-field col s12 m12 l12">
-              <input type="text" name="grindername" value="" id="inomegrinder" autofocus />
-              <label for="inomegrinder">Grinder Name</label>
+              <input type="text" name="filtername" value="" id="inomefilter" autofocus />
+              <label for="inomefilter">Filter Name</label>
             </div>
 
 <!-- Tipo do Filter -->
     		 <div class="input-field col s6 m6 l6">
-            <input type="text" name="grindertype" value="" id="itypegrinder" />
-            <label for="itypegrinder">Type</label>
+            <input type="text" name="filtertype" value="" id="itypefilter" />
+            <label for="itypefilter">Type</label>
          </div>
 
 <!-- Capacidade do Filter -->
          <div class="input-field col s2 m2 l2">
-            <input type="number" name="grindervolume" value="" id="ivolumegrinder" />
+            <input type="number" name="filtervolume" value="" id="ivolumefilter" />
             <label for="ivolumefilter">Volume</label>
          </div>
 
@@ -80,14 +81,14 @@
          <div class="col s4 m4 l4">
            <form>
             <div>
-             <input type="radio" id="imeasurelitregrinder" name="grinderlitre" value="litre">
-             <label for="imeasurelitregrinder">Litre (l)</label>
+             <input type="radio" id="imeasurelitrefilter" name="filterlitre" value="litre">
+             <label for="imeasurelitrefilter">Litre (l)</label>
 
-             <input type="radio" id="imeasurecubicmetregrinder" name="grindercubicmetre" value="cubicmetre">
-             <label for="imeasurecubicmetregrinder">Cubic metre (m³)</label>
+             <input type="radio" id="imeasurecubicmetrefilter" name="filtercubicmetre" value="cubicmetre">
+             <label for="imeasurecubicmetrefilter">Cubic metre (m³)</label>
 
-             <input type="radio" id="imeasuregallongrinder" name="grindergallon" value="gallon">
-             <label for="imeasuregallongrinder">Gallon (gal)</label>
+             <input type="radio" id="imeasuregallonfilter" name="filtergallon" value="gallon">
+             <label for="imeasuregallonfilter">Gallon (gal)</label>
 
             </div>
            </form>
@@ -95,8 +96,8 @@
 
 <!-- Descrição -->
         <div class="input-field col s12 m12 l12">
-           <input type="text" name="grinderdescription" value="" id="idescriptiongrinder" />
-           <label for="idescriptiongrinder">Description</label>
+           <input type="text" name="filterdescription" value="" id="idescriptionfilter" />
+           <label for="idescriptionfilter">Description</label>
         </div>
 
         <div class="row">

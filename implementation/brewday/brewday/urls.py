@@ -30,6 +30,14 @@ urlpatterns = [
     url(r'^register-ingredient-malt/', views.register_ingredient3, name="ingredient3"),
     url(r'^register-ingredient-sugar/', views.register_ingredient4, name="ingredient4"),
     url(r'^register-ingredient-yeasts/', views.register_ingredient5, name="ingredient5"),
+    url(r'^register-equipment-kettle/', views.register_equipment1, name="equipment1"),
+    url(r'^register-equipment-fermenter/', views.register_equipment2, name="equipment2"),
+    url(r'^register-equipment-filter/', views.register_equipment3, name="equipment3"),
+    url(r'^register-equipment-grinder/', views.register_equipment4, name="equipment4"),
+
+
+
+
 
 
 

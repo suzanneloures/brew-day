@@ -78,3 +78,20 @@ def register_ingredient4(request):
 def register_ingredient5(request):
 	return render(request, "register_ingredient2_yeasts.html")
 
+def register_equipment1(request):
+	return render(request, "register_equipment2_kettle.html")
+
+def register_equipment2(request):
+	return render(request, "register_equipment2_fermenter.html")
+
+def register_equipment3(request):
+	return render(request, "register_equipment2_filter.html")
+
+def register_equipment4(request):
+	return render(request, "register_equipment2_grinder.html")
+
+
+
+
+
+

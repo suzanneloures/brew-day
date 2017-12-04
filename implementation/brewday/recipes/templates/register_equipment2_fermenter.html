@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,9 +30,9 @@
     <ul id="slide-out" class="side-nav fixed">
         <li><div class="user-view">
           <div class="background">
-           <img src="{% static"/img/logo.png" %}">
+          <img src="{% static "img/logo.png" %}">
         </div>
-          <a href="#!user"><img class="circle" src="{% static"/img/user.png" %}"></a>
+          <a href="#!user"><img class="circle" src="{% static "img/user.png" %}"></a>
           <a href="#!name"><span class="white-text name">Daniel Guedes</span></a>
           <a href="#!email"><span class="white-text email">exemplo@gmail.com</span></a>
         </div></li>
@@ -57,47 +58,46 @@
 
       <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
 
-<!-- Nome do Kettle -->
-        <p class="flow-text grey-text center">Kettle Register</p>
+<!-- Nome do Fermenter -->
+        <p class="flow-text grey-text center">Fermenter Register</p>
             <div class="input-field col s12 m12 l12">
-              <input type="text" name="kettlename" value="" id="inomekettle" autofocus />
-              <label for="inomekettle">Kettle Name</label>
+              <input type="text" name="fermentername" value="" id="inomefermenter" autofocus />
+              <label for="inomefermenter">Fermenter Name</label>
             </div>
 
-<!-- Tipo do Kettle -->
+<!-- Tipo do Fermenter -->
     		 <div class="input-field col s6 m6 l6">
-            <input type="text" name="kettletype" value="" id="itypekettle" />
-            <label for="itypekettle">Type</label>
+            <input type="text" name="fermentertype" value="" id="itypefermenter" />
+            <label for="itypefermenter">Type</label>
          </div>
 
-<!-- Quantidade do Kettle -->
+<!-- Capacidade do Fermenter -->
          <div class="input-field col s2 m2 l2">
-            <input type="number" name="kettlevolume" value="" id="ivolumekettle" />
-            <label for="ivolumekettle">Volume</label>
+            <input type="number" name="fermentervolume" value="" id="ivolumefermenter" />
+            <label for="ivolumefermenter">Volume</label>
          </div>
 
 <!-- Tipo da medida -->
          <div class="col s4 m4 l4">
            <form>
             <div>
-             <input type="radio" id="imeasurelitrekettle" name="kettlelitre" value="litre">
-             <label for="imeasurelitrekettle">Litre (l)</label>
+             <input type="radio" id="imeasurelitrefermenter" name="fermenterlitre" value="litre">
+             <label for="imeasurelitrefermenter">Litre (l)</label>
 
-             <input type="radio" id="imeasurecubicmetrekettle" name="kettlecubicmetre" value="cubicmetre">
-             <label for="imeasurecubicmetrekettle">Cubic metre (m³)</label>
+             <input type="radio" id="imeasurecubicmetrefermenter" name="fermentercubicmetre" value="cubicmetre">
+             <label for="imeasurecubicmetrefermenter">Cubic metre (m³)</label>
 
-             <input type="radio" id="imeasuregallon" name="kettlegallon" value="gallon">
-             <label for="imeasuregallon">Gallon (gal)</label>
+             <input type="radio" id="imeasuregallonfermenter" name="fermentergallon" value="gallon">
+             <label for="imeasuregallonfermenter">Gallon (gal)</label>
 
             </div>
            </form>
         </div>
 
-
 <!-- Descrição -->
         <div class="input-field col s12 m12 l12">
-           <input type="text" name="kettledescription" value="" id="idescriptionkettle" />
-           <label for="idescriptionkettle">Description</label>
+           <input type="text" name="fermenterdescription" value="" id="idescriptionfermenter" />
+           <label for="idescriptionfermenter">Description</label>
         </div>
 
         <div class="row">
@@ -110,15 +110,15 @@
   </fieldset>
 </form>
 
-    <!-- Footer here -->
+<!-- Footer here -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
-    <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
+	  <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
+	  <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
 
     <script type="text/javascript"  src=" {% static "js/materialize.min.js"  media="screen,projection" %}"></script>
 
-    <script type="text/javascript" scr =" {% static "js/jquery.quicksearch.js" %}" ></script>
-    <script type="text/javascript" scr =" {% static "/js/jquery.jscroll.min.js" %}" ></script>
+  	<script type="text/javascript" scr =" {% static "js/jquery.quicksearch.js" %}" ></script>
+	  <script type="text/javascript" scr =" {% static "/js/jquery.jscroll.min.js" %}" ></script>
     <script type="text/javascript" charset="utf-8">
       $( document ).ready(function(){
         $(".button-collapse").sideNav();
