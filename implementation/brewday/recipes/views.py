@@ -63,7 +63,14 @@ def index(request):
 	return render(request, "index.html")
 
 def recipes(request):
-	return render(request, "recipes2.html")
+    if request.method  == 'GET':
+	    return render(request, "recipes2.html")
+    else:
+        return render(request, "recipes2.html")
+
+
+def register_ingredients(request):
+	return render(request, "register_ingredients.html")
 
 def register_ingredient1(request):
 	return render(request, "register_ingredient2_additives.html")
@@ -79,6 +86,8 @@ def register_ingredient4(request):
 
 def register_ingredient5(request):
 	return render(request, "register_ingredient2_yeasts.html")
+
+
 
 def register_equipment1(request):
 	return render(request, "register_equipment2_kettle.html")

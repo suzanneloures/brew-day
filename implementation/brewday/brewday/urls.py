@@ -36,6 +36,9 @@ urlpatterns = [
     url(r'^register-equipment-grinder/', views.register_equipment4, name="equipment4"),
     url(r'^register_recipes/', views.register_recipes1, name="register_recipes1"),
     url(r'^register_equipment/', views.register_equipment1, name="register_equipment1"),
+    url(r'^register_ingredients/', views.register_ingredients, name="register_ingredients"),
+
+    
     
 
 

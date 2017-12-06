@@ -9,5 +9,3 @@ admin.site.register(Production)
 admin.site.register(Recipe_Ingredient)
 admin.site.register(Recipe_Equipment)
 admin.site.register(Type_Ingredient)
-
-
