@@ -107,8 +107,8 @@
 
 <!-- Descrição -->
         <div class="input-field col s12 m12 l12">
-           <input type="text" name="fermenterdescription" value="" id="idescriptionfermenter" />
-           <label for="idescriptionfermenter">Description</label>
+          <textarea type="text" id="idescriptionfermenter" rows="12" cols="36" maxlength="250" class="materialize-textarea"></textarea>
+          <label for="idescriptionfermenter">Description</label>
         </div>
 
         <div class="row">
@@ -123,15 +123,16 @@
 
 <!-- Footer here -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	  <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
-	  <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
+    <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
+    <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
 
     <script type="text/javascript"  src=" {% static "js/materialize.min.js"  media="screen,projection" %}"></script>
 
-  	<script type="text/javascript" scr =" {% static "js/jquery.quicksearch.js" %}" ></script>
-	  <script type="text/javascript" scr =" {% static "/js/jquery.jscroll.min.js" %}" ></script>
+    <script type="text/javascript" scr =" {% static "js/jquery.quicksearch.js" %}" ></script>
+    <script type="text/javascript" scr =" {% static "/js/jquery.jscroll.min.js" %}" ></script>
     <script type="text/javascript" charset="utf-8">
-      $( document ).ready(function(){
+
+        $( document ).ready(function(){
         $(".button-collapse").sideNav();
         $("select").material_select();
         $('input#id_search').quicksearch('ul#quicksearch li.collection-item');
