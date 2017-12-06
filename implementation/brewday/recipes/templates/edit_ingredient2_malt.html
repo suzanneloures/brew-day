@@ -69,28 +69,17 @@
 
       <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
 
-<!-- Nome da Receita -->
-        <p class="flow-text grey-text center">Recipe Register</p>
-            <div class="input-field col s12 m12 l12">
-              <input type="text" name="name" value="" id="inomerecipe" autofocus />
-              <label for="inomerecipe">Recipe Name</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-              <input type="text" name="name" value="" id="itypebrew" autofocus />
-              <label for="itypebrew">Type Brew</label>
-            </div>
-
-
 <!-- Nome do Malt -->
+        <p class="flow-text grey-text center">Malt Register</p>
+            <div class="input-field col s12 m12 l12">
+              <input type="text" name="maltname" value="" id="inomemalt" autofocus />
+              <label for="inomemalt">Malt Name</label>
+            </div>
+
+<!-- Tipo do Malt - Será pré-seleção -->
     		 <div class="input-field col s6 m6 l6">
-            <select name='codmalt'>
-              {% for malt in malts %}
-                <option value="{{malt.id}}">
-                  {{malt.name}}
-                </option>
-                {% endfor %}
-            </select>
-            <label for="inomemalt">Malt</label>
+            <input type="text" name="malttype" value="" id="itypemalt" />
+            <label for="itypemalt">Type</label>
          </div>
 
 <!-- Quantidade do Malt -->
@@ -113,148 +102,41 @@
            </form>
         </div>
 
-<!-- Nome do Hops -->
+<!-- Rendimento do Malt -->
         <div class="input-field col s6 m6 l6">
-          
-          <select name='codhop'>
-              {% for hop in hops %}
-                <option value="{{hop.id}}">
-                  {{hop.name}}
-                </option>
-                {% endfor %}
-            </select>
-            <label for="inomeyeast">Hop</label>
+            <input type="number" name="maltyield" value="" id="iyieldmalt" />
+            <label for="iyieldmalt">Yield</label>
         </div>
 
-<!-- Quantidade do Hops -->
+<!-- SRM do Malt -->
         <div class="input-field col s3 m3 l3">
-           <input type="number" name="hopsquantity" value="" id="iquantityhops" />
-           <label for="iquantityhops">Quantity</label>
+            <input type="number" name="maltsrm" value="" id="isrmmalt" />
+            <label for="isrmmalt">SRM</label>
         </div>
 
-<!-- Tipo da medida -->
-        <div class="col s3 m3 l3">
-          <form>
-           <div>
-            <input type="radio" id="imeasuregramshops" name="hopsgrams" value="grams">
-            <label for="imeasuremgramshops">Grams</label>
-
-            <input type="radio" id="imeasurekilogramshops" name="hopskilograms" value="kilograms">
-            <label for="imeasurekilogramshops">Kilograms</label>
-
-           </div>
-          </form>
-       </div>
-
-<!-- Nome do Yeast -->
-            <div class="input-field col s6 m6 l6">
-               <select name='codyeast'>
-              {% for yeast in yeasts %}
-                <option value="{{yeast.id}}">
-                  {{yeast.name}}
-                </option>
-                {% endfor %}
-            </select>
-              <label for="inomeyeast">Yeast</label>
-            </div>
-
-<!-- Quantidade do Yeast -->
-            <div class="input-field col s3 m3 l3">
-               <input type="number" name="yeastquantity" value="" id="iquantityyeast" />
-               <label for="iquantityyeast">Quantity</label>
-            </div>
-
-<!-- Tipo da medida -->
-            <div class="col s3 m3 l3">
-              <form>
-               <div>
-                <input type="radio" id="imeasuregramsyeast" name="yeastgrams" value="grams">
-                <label for="imeasuremgramsyeast">Grams</label>
-
-                <input type="radio" id="imeasurekilogramsyeast" name="yeastkilograms" value="kilograms">
-                <label for="imeasurekilogramsyeast">Kilograms</label>
-
-               </div>
-              </form>
-            </div>
-
-<!-- Nome do Sugar -->
-            <div class="input-field col s6 m6 l6">
-              <select name='codsugar'>
-              {% for sugar in sugars %}
-                <option value="{{sugar.id}}">
-                  {{sugar.name}}
-                </option>
-                {% endfor %}
-            </select>
-              <label for="inomesugar">Sugar</label>
-            </div>
-
-<!-- Quantidade do Sugar -->
-            <div class="input-field col s3 m3 l3">
-               <input type="number" name="sugarquantity" value="" id="iquantitysugar" />
-               <label for="iquantitysugar">Quantity</label>
-            </div>
-
-<!-- Tipo da medida -->
-            <div class="col s3 m3 l3">
-              <form>
-               <div>
-                <input type="radio" id="imeasuregramssugar" name="sugargrams" value="grams">
-                <label for="imeasuremgramssugar">Grams</label>
-
-                <input type="radio" id="imeasurekilogramssugar" name="sugarkilograms" value="kilograms">
-                <label for="imeasurekilogramssugar">Kilograms</label>
-
-               </div>
-              </form>
-            </div>
-            -->
-
-<!-- Nome do Additive -->
-            <div class="input-field col s6 m6 l6">
-              <input type="text" name="additivename" value="" id="inomeadditive"  />
-              <label for="inomeadditive">Additive</label>
-            </div>
-
-<!-- Quantidade do Additive -->
-            <div class="input-field col s3 m3 l3">
-               <input type="number" name="additivequantity" value="" id="iquantityadditive" />
-               <label for="iquantityadditive">Quantity</label>
-            </div>
-
-<!-- Tipo da medida -->
-            <div class="col s3 m3 l3">
-              <form>
-               <div>
-                <input type="radio" id="imeasuregramsadditive" name="additivegrams" value="grams">
-                <label for="imeasuremgramsadditive">Grams</label>
-
-                <input type="radio" id="imeasurekilogramsadditive" name="additivekilograms" value="kilograms">
-                <label for="imeasurekilogramsadditive">Kilograms</label>
-
-               </div>
-              </form>
-            </div>
+<!-- Potencial do Malt -->
+        <div class="input-field col s3 m3 l3">
+            <input type="number" name="maltpotential" value="" id="ipotentialmalt" />
+            <label for="ipotentialmalt">Potencial</label>
+        </div>
 
 <!-- Descrição -->
-          <div class="input-field col s12 m12 l12">
-              <textarea type="text" id="idescriptionfermenter" rows="12" cols="36" maxlength="500" class="materialize-textarea"></textarea>
-              <label for="idescriptionfermenter">Description</label>
-          </div>
-      </div>
+        <div class="input-field col s12 m12 l12">
+            <textarea type="text" id="idescriptionfermenter" rows="12" cols="36" maxlength="250" class="materialize-textarea"></textarea>
+            <label for="idescriptionfermenter">Description</label>
+        </div>
 
-          <div class="row">
-            <div class="col s12 m10 offset-m1 l7 offset-l4">
-              <input type="submit" name="" value="Cancel" class="btn left amber accent-4"  />
-              <input type="submit" name="" value="Submit" class="btn right amber accent-4"  />
+        <div class="row">
+            <div class="col s12 m10 offset-m1 l7 offset-l2">
+              <input type="submit" name="" value="Cancel" class="btn left col offset-l2 amber accent-4"  />
+              <input type="submit" name="" value="Submit" class="btn right col offset-l1 amber accent-4"  />
             </div>
           </div>
       </div>
   </fieldset>
 </form>
 
-    <!-- footer here -->
+    <!-- Footer here -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	  <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
 	  <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
