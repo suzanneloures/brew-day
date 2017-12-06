@@ -6,7 +6,8 @@ from django.core.validators import validate_email
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
-
+from .models import Ingredient, Type_Ingredient
+from django.shortcuts import get_object_or_404
 
 def access(request):
     if request.method == 'POST':
@@ -73,20 +74,113 @@ def register_ingredients(request):
 	return render(request, "register_ingredients.html")
 
 def register_ingredient1(request):
-	return render(request, "register_ingredient2_additives.html")
+    if request.method == 'GET':
+        return render(request, "register_ingredient2_additives.html")
+    else:
+        additivesname = request.POST['additivesname']
+        additivesquantity = request.POST['additivesquantity']
+        unity = request.POST.get('additivesgrams',False)
+        ingrediente = Ingredient()
+        ingrediente.name = additivesname
+        ingrediente.quantity = additivesquantity
+        if unity:
+            ingrediente.unity = 'GR'
+        else:
+            ingrediente.unity = 'KG'
+        ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=5)
+
+        ingrediente.save()
+        conteudo = {'msg': 'Cadastrado com sucesso'}
+        return render(request, "register_ingredient2_additives.html", conteudo)
 
 def register_ingredient2(request):
-	return render(request, "register_ingredient2_hops.html")
+    if request.method  == 'GET':
+        return render(request, "register_ingredient2_hops.html")
+    else:
+        maltname = request.POST['maltname']
+        hopsquantity = request.POST['hopsquantity']
+        unity = request.POST.get('hopsgrams',False)
+        #maltdescription = request.POST['maltdescription']
+        ingrediente = Ingredient()
+        ingrediente.name = maltname
+        #ingrediente.unity = 0
+        ingrediente.quantity = hopsquantity
+        if unity:
+            ingrediente.unity = 'GR'
+        else:
+            ingrediente.unity = 'KG'
+        ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=1)
+
+        ingrediente.save()
+
+        conteudo = {'msg': 'Cadastrado com sucesso'}
+        return render(request, "register_ingredient2_hops.html", conteudo)
 
 def register_ingredient3(request):
-	return render(request, "register_ingredient2_malt.html")
+    if request.method  == 'GET':
+        return render(request, "register_ingredient2_malt.html")
+    else:
+        maltname = request.POST['maltname']
+        maltquantity = request.POST['maltquantity']
+        unity = request.POST.get('maltgrams',False)
+        ingrediente = Ingredient()
+        ingrediente.name = maltname
+        #ingrediente.unity = 0
+        ingrediente.quantity = maltquantity
+        if unity:
+            ingrediente.unity = 'GR'
+        else:
+            ingrediente.unity = 'KG'
+        ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=3)
+
+        ingrediente.save()
+
+        conteudo = {'msg': 'Cadastrado com sucesso'}
+        return render(request, "register_ingredient2_malt.html", conteudo)
 
 def register_ingredient4(request):
-	return render(request, "register_ingredient2_sugar.html")
+    if request.method  == 'GET':
+        return render(request, "register_ingredient2_sugar.html")
+    else:
+        sugarname = request.POST['sugarname']
+        sugarquantity = request.POST['sugarquantity']
+        unity = request.POST.get('imeasuregramssugar',False)
+        ingrediente = Ingredient()
+        ingrediente.name = sugarname
+        #ingrediente.unity = 0
+        ingrediente.quantity = sugarquantity
+        if unity:
+            ingrediente.unity = 'GR'
+        else:
+            ingrediente.unity = 'KG'
+        ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=2)
+
+        ingrediente.save()
+
+        conteudo = {'msg': 'Cadastrado com sucesso'}
+        return render(request, "register_ingredient2_sugar.html", conteudo)
 
 def register_ingredient5(request):
-	return render(request, "register_ingredient2_yeasts.html")
+    if request.method  == 'GET':
+        return render(request, "register_ingredient2_yeasts.html")
+    else:
+        yeastsname = request.POST['yeastsname']
+        yeastsquantity = request.POST['yeastsquantity']
+        unity = request.POST.get('yeastsgrams',False)
+        ingrediente = Ingredient()
+        ingrediente.name = yeastsname
+        #ingrediente.unity = 0
+        ingrediente.quantity = yeastsquantity
+        if unity:
+            ingrediente.unity = 'GR'
+        else:
+            ingrediente.unity = 'KG'
+        ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=4)
 
+        ingrediente.save()
+
+        conteudo = {'msg': 'Cadastrado com sucesso'}
+        return render(request, "register_ingredient2_yeasts.html", conteudo)
 
 
 def register_equipment1(request):

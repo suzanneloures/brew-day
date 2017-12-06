@@ -53,6 +53,7 @@
 
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
+    {% csrf_token%}
   <fieldset>
     <div class="row">
 
@@ -65,11 +66,11 @@
               <label for="inomeyeasts">Yeasts Name</label>
             </div>
 
-<!-- Tipo do Yeasts -->
+<!-- Tipo do Yeasts 
     		 <div class="input-field col s6 m6 l6">
             <input type="text" name="yeaststype" value="" id="itypeyeasts" />
             <label for="itypeyeasts">Type</label>
-         </div>
+         </div> -->
 
 <!-- Quantidade de Yeasts -->
          <div class="input-field col s3 m3 l3">
@@ -91,29 +92,29 @@
            </form>
         </div>
 
-<!-- Rendimento do Yeasts -->
+<!-- Rendimento do Yeasts 
         <div class="input-field col s6 m6 l6">
             <input type="number" name="yeastsattenuation" value="" id="iattenuationyeasts" />
             <label for="iattenuationyeasts">Attenuation</label>
-        </div>
+        </div> -->
 
-<!-- Floculação da Yeasts -->
+<!-- Floculação da Yeasts 
         <div class="input-field col s3 m3 l3">
             <input type="text" name="yeastsflocculation" value="" id="iflocculationyeasts" />
             <label for="iflocculationyeasts">Flocculation</label>
-        </div>
+        </div> -->
 
-<!-- Tolerância Alcoólica da Yeasts -->
+<!-- Tolerância Alcoólica da Yeasts 
         <div class="input-field col s3 m3 l3">
             <input type="number" name="yeaststolerance" value="" id="itoleranceyeasts" />
             <label for="itoleranceyeasts">Alcohol Tolerance</label>
-        </div>
+        </div> -->
 
-<!-- Descrição -->
+<!-- Descrição 
         <div class="input-field col s12 m12 l12">
            <input type="text" name="yeastsdescription" value="" id="idescriptionyeasts" />
            <label for="idescriptionyeasts">Description</label>
-        </div>
+        </div> -->
 
         <div class="row">
             <div class="col s12 m10 offset-m1 l7 offset-l2">

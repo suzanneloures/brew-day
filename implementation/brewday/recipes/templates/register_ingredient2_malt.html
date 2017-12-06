@@ -53,6 +53,7 @@
 
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
+  {% csrf_token%}
   <fieldset>
     <div class="row">
 
@@ -65,11 +66,11 @@
               <label for="inomemalt">Malt Name</label>
             </div>
 
-<!-- Tipo do Malt - Será pré-seleção -->
+<!-- Tipo do Malt - Será pré-seleção 
     		 <div class="input-field col s6 m6 l6">
             <input type="text" name="malttype" value="" id="itypemalt" />
             <label for="itypemalt">Type</label>
-         </div>
+         </div> -->
 
 <!-- Quantidade do Malt -->
          <div class="input-field col s3 m3 l3">
@@ -91,29 +92,29 @@
            </form>
         </div>
 
-<!-- Rendimento do Malt -->
+<!-- Rendimento do Malt 
         <div class="input-field col s6 m6 l6">
             <input type="number" name="maltyield" value="" id="iyieldmalt" />
             <label for="iyieldmalt">Yield</label>
-        </div>
+        </div> -->
 
-<!-- SRM do Malt -->
+<!-- SRM do Malt 
         <div class="input-field col s3 m3 l3">
             <input type="number" name="maltsrm" value="" id="isrmmalt" />
             <label for="isrmmalt">SRM</label>
-        </div>
+        </div> -->
 
-<!-- Potencial do Malt -->
+<!-- Potencial do Malt 
         <div class="input-field col s3 m3 l3">
             <input type="number" name="maltpotential" value="" id="ipotentialmalt" />
             <label for="ipotentialmalt">Potencial</label>
-        </div>
+        </div> -->
 
-<!-- Descrição -->
+<!-- Descrição 
         <div class="input-field col s12 m12 l12">
            <input type="text" name="maltdescription" value="" id="idescriptionmalt" />
            <label for="idescriptionmalt">Description</label>
-        </div>
+        </div> -->
 
         <div class="row">
             <div class="col s12 m10 offset-m1 l7 offset-l2">

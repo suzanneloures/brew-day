@@ -53,7 +53,17 @@
 
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
+  
+
+  {% csrf_token%}
   <fieldset>
+    {% if msg %}
+   <div class="card-panel  green darken-1">
+      
+       <p class="white-text text-darken-2">{{msg}}</p>
+      
+    </div>
+   {%endif%}
     <div class="row">
 
       <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
@@ -65,11 +75,11 @@
               <label for="inomemalt">Hops Name</label>
             </div>
 
-<!-- Tipo do Hops - Será pré-seleção -->
+<!-- Tipo do Hops - Será pré-seleção
     		 <div class="input-field col s6 m6 l6">
             <input type="text" name="hopstype" value="" id="itypehops" />
             <label for="itypehops">Type</label>
-         </div>
+         </div> -->
 
 <!-- Quantidade do Hops -->
          <div class="input-field col s3 m3 l3">
@@ -92,11 +102,11 @@
         </div>
 
 
-<!-- Descrição -->
+<!-- Descrição 
         <div class="input-field col s12 m12 l12">
            <input type="text" name="maltdescription" value="" id="idescriptionhops" />
            <label for="idescriptionhops">Description</label>
-        </div>
+        </div> -->
 
         <div class="row">
             <div class="col s12 m10 offset-m1 l7 offset-l2">
