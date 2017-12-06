@@ -64,57 +64,67 @@
 
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
-  {% csrf_token%}
   <fieldset>
     <div class="row">
 
       <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
 
-<!-- Nome do Additives -->
-        <p class="flow-text grey-text center">Additives Register</p>
+<!-- Nome da Yeasts -->
+        <p class="flow-text grey-text center">Yeasts Register</p>
             <div class="input-field col s12 m12 l12">
-              <input type="text" name="additivesname" value="" id="inomeadditives" autofocus />
-              <label for="inomeadditives">Additives Name</label>
+              <input type="text" name="yeastsname" value="" id="inomeyeasts" autofocus />
+              <label for="inomeyeasts">Yeasts Name</label>
             </div>
 
-<!-- Tipo do Additives
+<!-- Tipo do Yeasts -->
     		 <div class="input-field col s6 m6 l6">
-            <input type="text" name="additivestype" value="" id="itypeadditives" />
-            <label for="itypeadditives">Type</label>
-         </div> -->
+            <input type="text" name="yeaststype" value="" id="itypeyeasts" />
+            <label for="itypeyeasts">Type</label>
+         </div>
 
-<!-- Quantidade do Additives -->
+<!-- Quantidade de Yeasts -->
          <div class="input-field col s3 m3 l3">
-            <input type="number" name="additivesquantity" value="" id="iquantityadditives" />
-            <label for="iquantityadditives">Quantity</label>
+            <input type="number" name="yeastsquantity" value="" id="iquantityyeasts" />
+            <label for="iquantityyeasts">Quantity</label>
          </div>
 
 <!-- Tipo da medida -->
          <div class="col s3 m3 l3">
            <form>
             <div>
-             <input type="radio" id="imeasuregramsadditives" name="additivesgrams" value="grams">
-             <label for="imeasuregramsadditives">Grams</label>
+             <input type="radio" id="imeasuregramsyeasts" name="yeastsgrams" value="grams">
+             <label for="imeasuregramsyeasts">Grams</label>
 
-             <input type="radio" id="imeasurekilogramsadditives" name="additiveskilograms" value="kilograms">
-             <label for="imeasurekilogramsadditives">Kilograms</label>
+             <input type="radio" id="imeasurekilogramsyeasts" name="yeastskilograms" value="kilograms">
+             <label for="imeasurekilogramsyeasts">Kilograms</label>
 
             </div>
            </form>
         </div>
 
+<!-- Rendimento do Yeasts -->
+        <div class="input-field col s6 m6 l6">
+            <input type="number" name="yeastsattenuation" value="" id="iattenuationyeasts" />
+            <label for="iattenuationyeasts">Attenuation</label>
+        </div>
 
-<!-- Descrição 
+<!-- Floculação da Yeasts -->
+        <div class="input-field col s3 m3 l3">
+            <input type="text" name="yeastsflocculation" value="" id="iflocculationyeasts" />
+            <label for="iflocculationyeasts">Flocculation</label>
+        </div>
+
+<!-- Tolerância Alcoólica da Yeasts -->
+        <div class="input-field col s3 m3 l3">
+            <input type="number" name="yeaststolerance" value="" id="itoleranceyeasts" />
+            <label for="itoleranceyeasts">Alcohol Tolerance</label>
+        </div>
+
+<!-- Descrição -->
         <div class="input-field col s12 m12 l12">
-<<<<<<< HEAD
-           <input type="text" name="additivesdescription" value="" id="idescriptionadditives" />
-           <label for="idescriptionadditives">Description</label>
-        </div> -->
-=======
             <textarea type="text" id="idescriptionfermenter" rows="12" cols="36" maxlength="250" class="materialize-textarea"></textarea>
             <label for="idescriptionfermenter">Description</label>
         </div>
->>>>>>> 6acfe07d29fdbafcbc2f8f69f6db0b8b4b9dc15d
 
         <div class="row">
             <div class="col s12 m10 offset-m1 l7 offset-l2">

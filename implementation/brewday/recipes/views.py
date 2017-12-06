@@ -64,10 +64,16 @@ def index(request):
 	return render(request, "index.html")
 
 def recipes(request):
+    malts = Ingredient.objects.filter(type_ingredient_id = 3)
+    hops = Ingredient.objects.filter(type_ingredient_id = 1)
+    yeasts = Ingredient.objects.filter(type_ingredient_id = 4)
+    sugars = Ingredient.objects.filter(type_ingredient_id = 2)
+    additives = Ingredient.objects.filter(type_ingredient_id = 5)
+    conteudo = {'malts':malts, 'hops': hops, 'yeasts':yeasts, 'sugars': sugars, 'additives': additives}
     if request.method  == 'GET':
-	    return render(request, "recipes2.html")
+	    return render(request, "recipes2.html", conteudo)
     else:
-        return render(request, "recipes2.html")
+        return render(request, "recipes2.html",conteudo)
 
 
 def register_ingredients(request):

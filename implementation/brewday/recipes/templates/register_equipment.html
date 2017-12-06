@@ -64,79 +64,53 @@
 
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
-  {% csrf_token%}
   <fieldset>
     <div class="row">
 
       <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
 
-<!-- Nome do Additives -->
-        <p class="flow-text grey-text center">Additives Register</p>
-            <div class="input-field col s12 m12 l12">
-              <input type="text" name="additivesname" value="" id="inomeadditives" autofocus />
-              <label for="inomeadditives">Additives Name</label>
+<!-- Fermenter -->
+        <p class="flow-text grey-text center">Equipments Register</p>
+            <div class="input-field col s12 m6 l6">
+              <a class="waves-effect waves-light btn" href="#!">Fermenter</a>
             </div>
 
-<!-- Tipo do Additives
-    		 <div class="input-field col s6 m6 l6">
-            <input type="text" name="additivestype" value="" id="itypeadditives" />
-            <label for="itypeadditives">Type</label>
-         </div> -->
-
-<!-- Quantidade do Additives -->
-         <div class="input-field col s3 m3 l3">
-            <input type="number" name="additivesquantity" value="" id="iquantityadditives" />
-            <label for="iquantityadditives">Quantity</label>
-         </div>
-
-<!-- Tipo da medida -->
-         <div class="col s3 m3 l3">
-           <form>
-            <div>
-             <input type="radio" id="imeasuregramsadditives" name="additivesgrams" value="grams">
-             <label for="imeasuregramsadditives">Grams</label>
-
-             <input type="radio" id="imeasurekilogramsadditives" name="additiveskilograms" value="kilograms">
-             <label for="imeasurekilogramsadditives">Kilograms</label>
-
+<!-- Filter -->
+            <div class="input-field col s12 m6 l6">
+              <a class="waves-effect waves-light btn" href="#!">Filter</a>
             </div>
-           </form>
-        </div>
 
+<!-- Grinder -->
+            <div class="input-field col s12 m6 l6">
+              <a class="waves-effect waves-light btn" href="#!">Grinder</a>
+            </div>
 
-<!-- Descrição 
-        <div class="input-field col s12 m12 l12">
-<<<<<<< HEAD
-           <input type="text" name="additivesdescription" value="" id="idescriptionadditives" />
-           <label for="idescriptionadditives">Description</label>
-        </div> -->
-=======
-            <textarea type="text" id="idescriptionfermenter" rows="12" cols="36" maxlength="250" class="materialize-textarea"></textarea>
-            <label for="idescriptionfermenter">Description</label>
-        </div>
->>>>>>> 6acfe07d29fdbafcbc2f8f69f6db0b8b4b9dc15d
+<!-- Kettle -->
+            <div class="input-field col s12 m6 l6">
+              <a class="waves-effect waves-light btn" href="#!">Kettle</a>
+            </div>
 
         <div class="row">
-            <div class="col s12 m10 offset-m1 l7 offset-l2">
-              <input type="submit" name="" value="Cancel" class="btn left col offset-l2 amber accent-4"  />
-              <input type="submit" name="" value="Submit" class="btn right col offset-l1 amber accent-4"  />
-            </div>
-          </div>
+        </div>
+        <div class="row">
+        </div>
       </div>
+    </div>
   </fieldset>
 </form>
 
-    <!-- Footer here -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	  <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
-	  <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
+<!-- Footer here -->
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script type="text/javascript" scr=" {% static "/js/jquery.min.js" %}" ></script>
+     <script type="text/javascript" scr=" {% static "/js/materialize.min.js" %}" ></script>
 
-    <script type="text/javascript"  src=" {% static "js/materialize.min.js"  media="screen,projection" %}"></script>
+     <script type="text/javascript"  src=" {% static "js/materialize.min.js"  media="screen,projection" %}"></script>
 
-  	<script type="text/javascript" scr =" {% static "js/jquery.quicksearch.js" %}" ></script>
-	  <script type="text/javascript" scr =" {% static "/js/jquery.jscroll.min.js" %}" ></script>
-    <script type="text/javascript" charset="utf-8">
-      $( document ).ready(function(){
+     <script type="text/javascript" scr =" {% static "js/jquery.quicksearch.js" %}" ></script>
+     <script type="text/javascript" scr =" {% static "/js/jquery.jscroll.min.js" %}" ></script>
+     <script type="text/javascript" charset="utf-8">
+
+        $( document ).ready(function(){
         $(".button-collapse").sideNav();
         $("select").material_select();
         $('input#id_search').quicksearch('ul#quicksearch li.collection-item');
