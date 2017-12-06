@@ -27,40 +27,40 @@
 <body class="grey lighten-3">
 
   <!-- Barra de navegação lateral -->
-      <ul id="slide-out" class="side-nav fixed">
-        <li><div class="user-view">
-          <div class="background">
-           <img src="{% static "/img/logo.png" %}">
-        </div>
-          <a href="#!user"><img class="circle" src="{% static "img/user.png" %}"></a>
-          <a href="#!name"><span class="white-text name">Daniel Guedes</span></a>
-          <a href="#!email"><span class="white-text email">exemplo@gmail.com</span></a>
-        </div></li>
+        <ul id="slide-out" class="side-nav fixed">
+          <li><div class="user-view">
+            <div class="background">
+             <img src="{% static "/img/logo.png" %}">
+          </div>
+            <a href="#!user"><img class="circle" src="{% static "img/user.png" %}"></a>
+            <a href="#!name"><span class="white-text name">Daniel Guedes</span></a>
+            <a href="#!email"><span class="white-text email">exemplo@gmail.com</span></a>
+          </div></li>
 
-        <li><div class="divider"></div></li>
-        <li><a class="subheader">Brew Time</a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">playlist_add_check</i>Recipe</a></li>
-        <ul id='dropdown1' class='dropdown-content'>
-          <li><a href="#!"><i class="material-icons">playlist_add</i>Add Recipe</a></li>
-          <li><a href="#!"><i class="material-icons">visibility</i>View Recipe</a></li>
+          <li><div class="divider"></div></li>
+          <li><a class="subheader">Brew Time</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">playlist_add_check</i>Recipe</a></li>
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="{% url 'recipes' %}"><i class="material-icons">playlist_add</i>Add Recipe</a></li>
+            <li><a href="{% url 'register_recipes1' %}"><i class="material-icons">visibility</i>View Recipe</a></li>
+          </ul>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">store</i>Ingredient</a></li>
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="{% url 'register_ingredients' %}"><i class="material-icons">playlist_add</i>Add Ingredient</a></li>
+            <li><a href="#!"><i class="material-icons">visibility</i>View Ingredient</a></li>
+          </ul>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">assignment</i>Equipment</a></li>
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="{% url 'register_equipment1' %}"><i class="material-icons">playlist_add</i>Add Equipment</a></li>
+            <li><a href="#!"><i class="material-icons">visibility</i>View Equipment</a></li>
+          </ul>
+          <li><a href="#!" ><i class="material-icons">insert_chart</i>Production</a></li>
+          <li><div class="divider"></div></li>
+          <li><a class="subheader">More</a></li>
+          <li><a class="waves-effect" href="#!">Settings</a></li>
+          <li><a class="waves-effect" href="#!">Logout</a></li>
         </ul>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">store</i>Ingredient</a></li>
-        <ul id='dropdown1' class='dropdown-content'>
-          <li><a href="#!"><i class="material-icons">playlist_add</i>Add Recipe</a></li>
-          <li><a href="#!"><i class="material-icons">visibility</i>View Recipe</a></li>
-        </ul>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">assignment</i>Equipment</a></li>
-        <ul id='dropdown1' class='dropdown-content'>
-          <li><a href="#!"><i class="material-icons">playlist_add</i>Add Recipe</a></li>
-          <li><a href="#!"><i class="material-icons">visibility</i>View Recipe</a></li>
-        </ul>
-        <li><a href="#!" ><i class="material-icons">insert_chart</i>Production</a></li>
-        <li><div class="divider"></div></li>
-        <li><a class="subheader">More</a></li>
-        <li><a class="waves-effect" href="#!">Settings</a></li>
-        <li><a class="waves-effect" href="#!">Logout</a></li>
-      </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
