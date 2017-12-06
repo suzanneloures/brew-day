@@ -19,8 +19,8 @@ from recipes import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', views.access),
-    url(r'^register/', views.register),
+    url(r'^login/', views.access, name="login"),
+    url(r'^register/', views.register, name="register"),
     url(r'^confirm/', views.confirm),
     url(r'^home/', views.home),
     url(r'^index/', views.index),
@@ -34,6 +34,11 @@ urlpatterns = [
     url(r'^register-equipment-fermenter/', views.register_equipment2, name="equipment2"),
     url(r'^register-equipment-filter/', views.register_equipment3, name="equipment3"),
     url(r'^register-equipment-grinder/', views.register_equipment4, name="equipment4"),
+    url(r'^register_recipes/', views.register_recipes1, name="register_recipes1"),
+    url(r'^register_equipment/', views.register_equipment1, name="register_equipment1"),
+    
+
+
 
 
 

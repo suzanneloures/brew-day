@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.core.validators import validate_email
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib import messages
+
 
 def access(request):
     if request.method == 'POST':
@@ -46,8 +48,8 @@ def register(request):
             user = User.objects.create_user(email,email,password)
             user.first_name = name
             user.last_name = lname
-            user.save() 
-            return render(request, "confirm.html" )
+            user.save()       
+            return HttpResponseRedirect(reverse('login'))
         else:
             return render(request, "register.html",{'erros': erros})
 
@@ -90,8 +92,9 @@ def register_equipment3(request):
 def register_equipment4(request):
 	return render(request, "register_equipment2_grinder.html")
 
+def register_recipes1(request):
+	return render(request, "register_recipes1.html")
 
-
-
-
+def register_equipment1(request):
+	return render(request, "register_equipment1.html")
 

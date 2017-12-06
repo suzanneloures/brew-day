@@ -6,8 +6,7 @@ class Recipe (models.Model):
     title = models.CharField(max_length=300)
     type_brew = models.CharField(max_length=300)
     description = models.TextField()
-    id_equipment = models.ForeignKey('Equipment', null=True)
-
+    
 class Ingredient (models.Model):  # tipo de ingrediente criar 
     name = models.CharField(max_length=300)
     unity = models.FloatField() #Medida absoluta será medido em miligramas
@@ -24,9 +23,15 @@ class Production (models.Model):
     id_recipe = models.ForeignKey('Recipe', null=True)
 
 class Recipe_Ingredient (models.Model):
+    id_type_ingredient = models.ForeignKey('Type_Ingredient', null=True)
     id_recipe = models.ForeignKey('Recipe', null=True)
     id_ingredient = models.ForeignKey('Ingredient', null=True)
+    quantity = models.FloatField()
 
+class Recipe_Equipment (models.Model):
+    id_recipe = models.ForeignKey('Recipe', null=True)
+    id_ingredient = models.ForeignKey('Ingredient', null=True)
+    quantity = models.FloatField()
     
-
-   
+class Type_Ingredient (models.Model):
+    name = models.CharField(max_length=45)
