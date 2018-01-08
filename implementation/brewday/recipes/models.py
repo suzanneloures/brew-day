@@ -6,7 +6,7 @@ class Recipe (models.Model):
     title = models.CharField(max_length=300)
     type_brew = models.CharField(max_length=300)
     description = models.TextField()
-
+    ingredients = models.ManyToManyField('Ingredient', through='Recipe_Ingredient', through_fields=('recipe','ingredient'))
     def __str__(self):
         return self.title
     
@@ -35,9 +35,9 @@ class Production (models.Model):
     id_recipe = models.ForeignKey('Recipe', null=True)
 
 class Recipe_Ingredient (models.Model):
-    id_type_ingredient = models.ForeignKey('Type_Ingredient', null=True)
-    id_recipe = models.ForeignKey('Recipe', null=True)
-    id_ingredient = models.ForeignKey('Ingredient', null=True)
+    #id_type_ingredient = models.ForeignKey('Type_Ingredient', null=True)
+    recipe = models.ForeignKey('Recipe', null=True)
+    ingredient = models.ForeignKey('Ingredient', null=True)
     quantity = models.FloatField()
 
 class Recipe_Equipment (models.Model):

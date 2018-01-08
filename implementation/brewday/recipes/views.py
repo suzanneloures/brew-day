@@ -6,7 +6,7 @@ from django.core.validators import validate_email
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
-from .models import Ingredient, Type_Ingredient
+from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient
 from django.shortcuts import get_object_or_404
 
 def access(request):
@@ -73,6 +73,59 @@ def recipes(request):
     if request.method  == 'GET':
 	    return render(request, "recipes2.html", conteudo)
     else:
+        name_recipe = request.POST.get('name')
+        type_recipe = request.POST.get('type')
+        malt = request.POST.get('codmalt')
+        malt_qtd = request.POST.get('maltquantity',1)
+        hop = request.POST.get('codhop')
+        hop_qtd = request.POST.get('hopsquantity',1)
+        yeast = request.POST.get('codyeast')
+        yeast_qtd = request.POST.get('yeastquantity',1)
+        sugar = request.POST.get('codsugar')
+        sugar_qtd = request.POST.get('sugarquantity',1)
+        additive = request.POST.get('codadditive')
+        additive_qtd = request.POST.get('additivequantity',1)
+        recipe = Recipe()
+        recipe.title = name_recipe
+        recipe.type_brew = type_recipe
+        recipe.save()
+
+        if malt is not None:
+            recipe_ingredient_malt = Recipe_Ingredient()
+            recipe_ingredient_malt.recipe_id = int(recipe.id)
+            recipe_ingredient_malt.ingredient_id = int(malt)
+            recipe_ingredient_malt.quantity = int(malt_qtd)
+            recipe_ingredient_malt.save()
+        
+        if hop is not None:
+            recipe_ingredient_hop = Recipe_Ingredient()
+            recipe_ingredient_hop.recipe_id = int(recipe.id)
+            recipe_ingredient_hop.ingredient_id = int(hop)
+            recipe_ingredient_hop.quantity = int(hop_qtd)
+            recipe_ingredient_hop.save()
+        
+        if yeast is not None:
+            recipe_ingredient_yeast = Recipe_Ingredient()
+            recipe_ingredient_yeast.recipe_id = int(recipe.id)
+            recipe_ingredient_yeast.ingredient_id = int(yeast)
+            recipe_ingredient_yeast.quantity = int(yeast_qtd)
+            recipe_ingredient_yeast.save()
+        
+        if sugar is not None:
+            recipe_ingredient_sugar = Recipe_Ingredient()
+            recipe_ingredient_sugar.recipe_id = int(recipe.id)
+            recipe_ingredient_sugar.ingredient_id = int(sugar)
+            recipe_ingredient_sugar.quantity = int(sugar_qtd)
+            recipe_ingredient_sugar.save()
+
+        if additive is not None:
+            recipe_ingredient_additive = Recipe_Ingredient()
+            recipe_ingredient_additive.recipe_id = int(additive.id)
+            recipe_ingredient_additive.ingredient_id = int(additive)
+            recipe_ingredient_additive.quantity = int(additive_qtd)
+            recipe_ingredient_additive.save()
+
+
         return render(request, "recipes2.html",conteudo)
 
 
