@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, Equipment, Ingredient, Production, Recipe_Ingredient, Recipe_Equipment, Type_Ingredient
+from .models import Recipe, Equipment, Ingredient, Production, Recipe_Ingredient, Recipe_Equipment, Type_Ingredient, Type_Equipment
 
 # Register your models here.
 admin.site.register(Recipe)
@@ -9,3 +9,4 @@ admin.site.register(Production)
 admin.site.register(Recipe_Ingredient)
 admin.site.register(Recipe_Equipment)
 admin.site.register(Type_Ingredient)
+admin.site.register(Type_Equipment)

@@ -243,9 +243,8 @@ def view_equipment(request):
 	return render(request, "view_equipment.html")
 def register_equipment_fermenter(request):
 	return render(request, "register_equipment_fermenter.html")
-
 def register_equipment_filter(request):
-	return render(request, "register_equipment_filter.html.html")
+	return render(request, "register_equipment_filter.html")
 
 def register_equipment_grinder(request):
 	return render(request, "register_equipment_grinder.html")

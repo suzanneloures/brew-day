@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^login/', views.access, name="login"),
     url(r'^register_user/', views.register_user, name="register_user"),
     url(r'^home/', views.home, name="home"),
-    url(r'^index/', views.index, name="index"),
+    url(r'^index/',  views.index, name="index"),
     url(r'^recipes/', views.recipes, name="recipes"),
     url(r'^production/', views.production, name="production"),
 
