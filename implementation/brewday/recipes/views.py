@@ -120,7 +120,7 @@ def recipes(request):
 
         if additive is not None:
             recipe_ingredient_additive = Recipe_Ingredient()
-            recipe_ingredient_additive.recipe_id = int(additive.id)
+            recipe_ingredient_additive.recipe_id = int(recipe.id)
             recipe_ingredient_additive.ingredient_id = int(additive)
             recipe_ingredient_additive.quantity = int(additive_qtd)
             recipe_ingredient_additive.save()
