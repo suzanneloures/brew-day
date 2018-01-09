@@ -131,9 +131,9 @@ def recipes(request):
 def view_ingredients(request):
 	return render(request, "view_ingredients.html")
 
-def register_ingredient1(request):
+def register_ingredient_additives(request):
     if request.method == 'GET':
-        return render(request, "register_ingredient2_additives.html")
+        return render(request, "register_ingredient_additives.html")
     else:
         additivesname = request.POST['additivesname']
         additivesquantity = request.POST['additivesquantity']
@@ -149,11 +149,11 @@ def register_ingredient1(request):
 
         ingrediente.save()
         conteudo = {'msg': 'Cadastrado com sucesso'}
-        return render(request, "register_ingredient2_additives.html", conteudo)
+        return render(request, "register_ingredient_additives.html", conteudo)
 
-def register_ingredient2(request):
+def register_ingredient_hops(request):
     if request.method  == 'GET':
-        return render(request, "register_ingredient2_hops.html")
+        return render(request, "register_ingredient_hops.html")
     else:
         maltname = request.POST['maltname']
         hopsquantity = request.POST['hopsquantity']
@@ -172,11 +172,11 @@ def register_ingredient2(request):
         ingrediente.save()
 
         conteudo = {'msg': 'Cadastrado com sucesso'}
-        return render(request, "register_ingredient2_hops.html", conteudo)
+        return render(request, "register_ingredient_hops.html", conteudo)
 
-def register_ingredient3(request):
+def register_ingredient_malt(request):
     if request.method  == 'GET':
-        return render(request, "register_ingredient2_malt.html")
+        return render(request, "register_ingredient_malt.html")
     else:
         maltname = request.POST['maltname']
         maltquantity = request.POST['maltquantity']
@@ -194,11 +194,11 @@ def register_ingredient3(request):
         ingrediente.save()
 
         conteudo = {'msg': 'Cadastrado com sucesso'}
-        return render(request, "register_ingredient2_malt.html", conteudo)
+        return render(request, "register_ingredient_malt.html", conteudo)
 
-def register_ingredient4(request):
+def register_ingredient_sugar(request):
     if request.method  == 'GET':
-        return render(request, "register_ingredient2_sugar.html")
+        return render(request, "register_ingredient_sugar.html")
     else:
         sugarname = request.POST['sugarname']
         sugarquantity = request.POST['sugarquantity']
@@ -216,11 +216,11 @@ def register_ingredient4(request):
         ingrediente.save()
 
         conteudo = {'msg': 'Cadastrado com sucesso'}
-        return render(request, "register_ingredient2_sugar.html", conteudo)
+        return render(request, "register_ingredient_sugar.html", conteudo)
 
-def register_ingredient5(request):
+def register_ingredient_yeasts(request):
     if request.method  == 'GET':
-        return render(request, "register_ingredient2_yeasts.html")
+        return render(request, "register_ingredient_yeasts.html")
     else:
         yeastsname = request.POST['yeastsname']
         yeastsquantity = request.POST['yeastsquantity']
@@ -238,24 +238,20 @@ def register_ingredient5(request):
         ingrediente.save()
 
         conteudo = {'msg': 'Cadastrado com sucesso'}
-        return render(request, "register_ingredient2_yeasts.html", conteudo)
+        return render(request, "register_ingredient_yeasts.html", conteudo)
+def view_equipment(request):
+	return render(request, "view_equipment.html")
+def register_equipment_fermenter(request):
+	return render(request, "register_equipment_fermenter.html")
 
+def register_equipment_filter(request):
+	return render(request, "register_equipment_filter.html.html")
 
-def register_equipment1(request):
-	return render(request, "register_equipment2_kettle.html")
-
-def register_equipment2(request):
-	return render(request, "register_equipment2_fermenter.html")
-
-def register_equipment3(request):
-	return render(request, "register_equipment2_filter.html")
-
-def register_equipment4(request):
-	return render(request, "register_equipment2_grinder.html")
-
+def register_equipment_grinder(request):
+	return render(request, "register_equipment_grinder.html")
+def register_equipment_kettle(request):
+	return render(request, "register_equipment_kettle.html")
 def view_recipes(request):
 	return render(request, "view_recipes.html")
-
-def register_equipment1(request):
-	return render(request, "register_equipment1.html")
-
+def production(request):
+	return render(request, "production.html")

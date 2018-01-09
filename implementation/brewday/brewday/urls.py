@@ -22,19 +22,24 @@ urlpatterns = [
     url(r'^login/', views.access, name="login"),
     url(r'^register_user/', views.register_user, name="register_user"),
     url(r'^home/', views.home, name="home"),
-    url(r'^index/', views.index),
+    url(r'^index/', views.index, name="index"),
     url(r'^recipes/', views.recipes, name="recipes"),
-    url(r'^register-ingredient-additives/', views.register_ingredient1, name="ingredient1"),
-    url(r'^register-ingredient-hops/', views.register_ingredient2, name="ingredient-hops"),
-    url(r'^register-ingredient-malt/', views.register_ingredient3, name="ingredient3"),
-    url(r'^register-ingredient-sugar/', views.register_ingredient4, name="ingredient4"),
-    url(r'^register-ingredient-yeasts/', views.register_ingredient5, name="ingredient5"),
-    url(r'^register-equipment-kettle/', views.register_equipment1, name="equipment1"),
-    url(r'^register-equipment-fermenter/', views.register_equipment2, name="equipment2"),
-    url(r'^register-equipment-filter/', views.register_equipment3, name="equipment3"),
-    url(r'^register-equipment-grinder/', views.register_equipment4, name="equipment4"),
+    url(r'^production/', views.production, name="production"),
+
+    #Registros de URLS INGREDIENTES
+    url(r'^register-ingredient-additives/', views.register_ingredient_additives, name="register_additives"),
+    url(r'^register-ingredient-hops/', views.register_ingredient_hops, name="register_hops"),
+    url(r'^register-ingredient-malt/', views.register_ingredient_malt, name="register_malt"),
+    url(r'^register-ingredient-sugar/', views.register_ingredient_sugar, name="register_sugar"),
+    url(r'^register-ingredient-yeasts/', views.register_ingredient_yeasts, name="register_yeasts"),
+    #Registros de URLS EQUIPAMENTOS
+    url(r'^register-equipment-fermenter/', views.register_equipment_fermenter, name="register_fermenter"),
+    url(r'^register-equipment-filter/', views.register_equipment_filter, name="register_filter"),
+    url(r'^register-equipment-grinder/', views.register_equipment_grinder, name="register_grinder"),
+    url(r'^register-equipment-kettle/', views.register_equipment_kettle, name="register_kettle"),
+    #Registros de URLS VIEWS
     url(r'^view_recipes/', views.view_recipes, name="view_recipes"),
-    url(r'^register_equipment/', views.register_equipment1, name="register_equipment1"),
+    url(r'^view_equipment/', views.view_equipment, name="view_equipment"),
     url(r'^view_ingredients/', views.view_ingredients, name="view_ingredients"),
 
     

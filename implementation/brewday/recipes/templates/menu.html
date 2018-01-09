@@ -44,11 +44,17 @@
     
             <li><div class="divider"></div></li>
             <li><a class="subheader">Brew Time</a></li>
+
+<!--Botão Receitas -->
+
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">playlist_add_check</i>Recipe</a></li>
             <ul id='dropdown1' class='dropdown-content'>
               <li><a href="{% url 'recipes' %}"><i class="material-icons">playlist_add</i>Add Recipe</a></li>
               <li><a href="{% url 'view_recipes' %}"><i class="material-icons">visibility</i>View Recipe</a></li>
             </ul>
+
+<!--Botão Ingrediente -->
+            
             <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons">store</i>Ingredient</a></li>
             <ul id='dropdown2' class='dropdown-content'>
               <li><a href="{% url 'view_ingredients' %}"><i class="material-icons">visibility</i>View Ingredients</a></li>
@@ -56,19 +62,19 @@
             </ul>
 
             <ul id='dropdown21' class='dropdown-content' style="overflow-y: visible;margin-top: 45px;" >
-                    <li><a href="{% url 'ingredient1' %}"><i class="material-icons">playlist_add</i>Additive</a></li>
-                    <li><a href="{% url 'ingredient-hops' %}"><i class="material-icons">playlist_add</i>Hop</a></li>
-                    <li><a href="{% url 'ingredient3' %}"><i class="material-icons">playlist_add</i>Malt</a></li>
-                    <li><a href="{% url 'ingredient4' %}"><i class="material-icons">playlist_add</i>Sugar</a></li>
-                    <li><a href="{% url 'ingredient5' %}"><i class="material-icons">playlist_add</i>Yeast</a></li>
+                    <li><a href="{% url 'register_additives' %}"><i class="material-icons">playlist_add</i>Additive</a></li>
+                    <li><a href="{% url 'register_hops' %}"><i class="material-icons">playlist_add</i>Hop</a></li>
+                    <li><a href="{% url 'register_malt' %}"><i class="material-icons">playlist_add</i>Malt</a></li>
+                    <li><a href="{% url 'register_sugar' %}"><i class="material-icons">playlist_add</i>Sugar</a></li>
+                    <li><a href="{% url 'register_yeasts' %}"><i class="material-icons">playlist_add</i>Yeast</a></li>
                     
                   </ul>
 
-
+<!--Botão Equipamento -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons">assignment</i>Equipment</a></li>
             <ul id='dropdown3' class='dropdown-content'>
-              <li><a href="#!"><i class="material-icons">playlist_add</i>Add Recipe</a></li>
-              <li><a href="#!"><i class="material-icons">visibility</i>View Recipe</a></li>
+              <li><a href="#!"><i class="material-icons">playlist_add</i>Add Equipment</a></li>
+              <li><a href="{% url 'view_equipment' %}"><i class="material-icons">visibility</i>View Equipment</a></li>
             </ul>
             <li><a href="#!" ><i class="material-icons">insert_chart</i>Production</a></li>
             <li><div class="divider"></div></li>
