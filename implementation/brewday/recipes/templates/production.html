@@ -1,10 +1,38 @@
-{% extends 'menu.html' %} 
 
+{% extends 'menu.html' %}
 {% block conteudo%}
 
+<form action="#" method="post" accept-charset="utf-8">
+  {% csrf_token%}
+  <fieldset>
+    <div class="row">
 
-<h1>O conteudo fica dentro desses blocos. obs:dispensa-se uso de tags:"html","head","body".
-Pois todo esse escopo está no arquivo menu.html</h1>
+      <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
 
+      <p class="flow-text grey-text center">Production</p>
+
+<!-- Nome da Recipe: Escolha de uma receita já pré-cadastrado-->
+            <div class="input-field col s12 m12 l12">
+              <input type="text" name="recipename" value="" id="inomefilter" autofocus />
+              <label for="inomefilter">Choose a Recipe</label>
+            </div>
+
+<!-- Nome do Equipamento: Escolha de um equipamento já pré-cadastrado-->
+        <div class="input-field col s12 m12 l12">
+            <input type="text" name="recipename" value="" id="inomefilter" autofocus />
+            <label for="inomefilter">Choose a Equipment</label>
+        </div>
+
+<!-- Ao pressionar o botão o usuário confirma a produção e o valor de cada
+ingrediente contido na receita escolhida é subtraído dos ingredientes -->
+
+        <div class="row">
+            <div class="col s12 m10 offset-m1 l7 offset-l2">
+              <input type="submit" name="" value="Submit" class="btn center col offset-l6 amber accent-4"  />
+            </div>
+          </div>
+      </div>
+  </fieldset>
+</form>
 
 {% endblock %}
