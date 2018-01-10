@@ -9,6 +9,8 @@ from django.contrib import messages
 from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient, Equipment, Type_Equipment
 from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
+from django.views.generic.edit import DeleteView
+from django.urls import reverse_lazy
 
 def access(request):
     if request.method == 'POST':
@@ -321,5 +323,18 @@ class view_recipes(ListView):
     model = Recipe
     template_name = 'view_recipes.html'
 
+class IngredientsView(ListView):
+    model = Ingredient
+    template_name = 'view_ingredients.html'
+
+class EquipmentsView(ListView):
+    model = Equipment
+    template_name = 'view_equipment.html'
+
 def production(request):
 	return render(request, "production.html")
+
+class RecipeDelete(DeleteView):
+    template_name = 'recipe_confirm_delete.html'
+    model = Recipe
+    success_url = reverse_lazy('view_recipes')
