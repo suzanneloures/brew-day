@@ -2,7 +2,7 @@
 {% block conteudo%}
 <!-- Formulário -->
   <div class="row">
-
+    {% for recipe in object_list %}
     <div class="col s12 m6 offset-m1 l3 offset-l4">
       <div class="card sticky-action">
         <div class="card">
@@ -10,16 +10,17 @@
             <i class="large material-icons">playlist_add_check</i>
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Recipe 1<i class="material-icons right">more_vert</i></span>
+            <span class="card-title activator grey-text text-darken-4">{{recipe.title}}<i class="material-icons right">more_vert</i></span>
             <p><a href="#">Edit</a><a class="right" href="#">Remove</a></p>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">Recipe 1<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this recipe that is only revealed once clicked on.</p>
+            <p>{{recipe.description}}</p>
             <p><a href="#">View</a></p>
           </div>
         </div>
       </div>
     </div>
+    {%endfor%}
   </div>
 {% endblock %}

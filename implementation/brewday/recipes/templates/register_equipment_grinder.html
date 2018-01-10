@@ -2,6 +2,7 @@
 {% block conteudo %}
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
+  {% csrf_token%}
   <fieldset>
     <div class="row">
 
@@ -14,11 +15,11 @@
               <label for="inomegrinder">Grinder Name</label>
             </div>
 
-<!-- Tipo do Grinder -->
+<!-- Tipo do Grinder 
     		 <div class="input-field col s6 m6 l6">
             <input type="text" name="grindertype" value="" id="itypegrinder" />
             <label for="itypegrinder">Type</label>
-         </div>
+         </div> -->
 
 <!-- Capacidade do Grinder -->
          <div class="input-field col s2 m2 l2">
@@ -27,21 +28,22 @@
          </div>
 
 <!-- Tipo da medida -->
-         <div class="col s4 m4 l4">
-           <form>
-            <div>
-             <input type="radio" id="imeasurelitregrinder" name="grinderlitre" value="litre">
-             <label for="imeasurelitregrinder">Litre (l)</label>
+<div class="col s4 m4 l4">
+  <form>
+   <div>
+    <input type="radio" id="imeasurelitrefermenter" name="medida" value="L">
+    <label for="imeasurelitrefermenter">Litre (l)</label>
 
-             <input type="radio" id="imeasurecubicmetregrinder" name="grindercubicmetre" value="cubicmetre">
-             <label for="imeasurecubicmetregrinder">Cubic metre (m³)</label>
+    <input type="radio" id="imeasurecubicmetrefermenter" name="medida" value="M3">
+    <label for="imeasurecubicmetrefermenter">Cubic metre (m³)</label>
 
-             <input type="radio" id="imeasuregallongrinder" name="grindergallon" value="gallon">
-             <label for="imeasuregallongrinder">Gallon (gal)</label>
+    <input type="radio" id="imeasuregallonfermenter" name="medida" value="GAL">
+    <label for="imeasuregallonfermenter">Gallon (gal)</label>
 
-            </div>
-           </form>
-        </div>
+   </div>
+  </form>
+</div>
+
 
 <!-- Descrição -->
         <div class="input-field col s12 m12 l12">

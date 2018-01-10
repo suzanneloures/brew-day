@@ -38,8 +38,11 @@
                <img src="{% static "/img/logo.png" %}">
             </div>
               <a href="#!user"><img class="circle" src="{% static "img/user.png" %}"></a>
-              <a href="#!name"><span class="white-text name">Daniel Guedes</span></a>
-              <a href="#!email"><span class="white-text email">exemplo@gmail.com</span></a>
+              {% if user.is_authenticated %}
+              <a href="#!name"><span class="white-text name">{{user.get_username}}</span></a>
+              {% else %}
+              <a href="#!name"><span class="white-text name">Anônimo</span></a>
+              {%endif%}
             </div></li>
     
             <li><div class="divider"></div></li>

@@ -2,6 +2,7 @@
 {% block conteudo %}
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
+  {% csrf_token%}
   <fieldset>
     <div class="row">
 
@@ -14,11 +15,11 @@
               <label for="inomekettle">Kettle Name</label>
             </div>
 
-<!-- Tipo do Kettle -->
+<!-- Tipo do Kettle 
     		 <div class="input-field col s6 m6 l6">
             <input type="text" name="kettletype" value="" id="itypekettle" />
             <label for="itypekettle">Type</label>
-         </div>
+         </div> -->
 
 <!-- Quantidade do Kettle -->
          <div class="input-field col s2 m2 l2">
@@ -27,21 +28,22 @@
          </div>
 
 <!-- Tipo da medida -->
-         <div class="col s4 m4 l4">
-           <form>
-            <div>
-             <input type="radio" id="imeasurelitrekettle" name="kettlelitre" value="litre">
-             <label for="imeasurelitrekettle">Litre (l)</label>
+<div class="col s4 m4 l4">
+  <form>
+   <div>
+    <input type="radio" id="imeasurelitrefermenter" name="medida" value="L">
+    <label for="imeasurelitrefermenter">Litre (l)</label>
 
-             <input type="radio" id="imeasurecubicmetrekettle" name="kettlecubicmetre" value="cubicmetre">
-             <label for="imeasurecubicmetrekettle">Cubic metre (m³)</label>
+    <input type="radio" id="imeasurecubicmetrefermenter" name="medida" value="M3">
+    <label for="imeasurecubicmetrefermenter">Cubic metre (m³)</label>
 
-             <input type="radio" id="imeasuregallon" name="kettlegallon" value="gallon">
-             <label for="imeasuregallon">Gallon (gal)</label>
+    <input type="radio" id="imeasuregallonfermenter" name="medida" value="GAL">
+    <label for="imeasuregallonfermenter">Gallon (gal)</label>
 
-            </div>
-           </form>
-        </div>
+   </div>
+  </form>
+</div>
+
 
 
 <!-- Descrição -->

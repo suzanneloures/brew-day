@@ -2,6 +2,7 @@
 {% block conteudo %}
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
+  {% csrf_token%}
   <fieldset>
     <div class="row">
 
@@ -27,21 +28,21 @@
          </div>
 
 <!-- Tipo da medida -->
-         <div class="col s4 m4 l4">
-           <form>
-            <div>
-             <input type="radio" id="imeasurelitrefilter" name="filterlitre" value="litre">
-             <label for="imeasurelitrefilter">Litre (l)</label>
+<div class="col s4 m4 l4">
+  <form>
+   <div>
+    <input type="radio" id="imeasurelitrefermenter" name="medida" value="L">
+    <label for="imeasurelitrefermenter">Litre (l)</label>
 
-             <input type="radio" id="imeasurecubicmetrefilter" name="filtercubicmetre" value="cubicmetre">
-             <label for="imeasurecubicmetrefilter">Cubic metre (m³)</label>
+    <input type="radio" id="imeasurecubicmetrefermenter" name="medida" value="M3">
+    <label for="imeasurecubicmetrefermenter">Cubic metre (m³)</label>
 
-             <input type="radio" id="imeasuregallonfilter" name="filtergallon" value="gallon">
-             <label for="imeasuregallonfilter">Gallon (gal)</label>
+    <input type="radio" id="imeasuregallonfermenter" name="medida" value="GAL">
+    <label for="imeasuregallonfermenter">Gallon (gal)</label>
 
-            </div>
-           </form>
-        </div>
+   </div>
+  </form>
+</div>
 
 <!-- Descrição -->
         <div class="input-field col s12 m12 l12">

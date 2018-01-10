@@ -6,8 +6,9 @@ from django.core.validators import validate_email
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
-from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient
+from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient, Equipment, Type_Equipment
 from django.shortcuts import get_object_or_404
+from django.views.generic.list import ListView
 
 def access(request):
     if request.method == 'POST':
@@ -75,6 +76,7 @@ def recipes(request):
         name_recipe = request.POST.get('name')
         type_recipe = request.POST.get('type')
         malt = request.POST.get('codmalt')
+        description = request.POST.get('description','')
         malt_qtd = request.POST.get('maltquantity',1)
         hop = request.POST.get('codhop')
         hop_qtd = request.POST.get('hopsquantity',1)
@@ -87,6 +89,7 @@ def recipes(request):
         recipe = Recipe()
         recipe.title = name_recipe
         recipe.type_brew = type_recipe
+        recipe.description = description
         recipe.save()
 
         if malt is not None:
@@ -241,16 +244,82 @@ def register_ingredient_yeasts(request):
         return render(request, "register_ingredient_yeasts.html", conteudo)
 def view_equipment(request):
 	return render(request, "view_equipment.html")
+
 def register_equipment_fermenter(request):
-	return render(request, "register_equipment_fermenter.html")
+    if request.method  == 'GET':
+        return render(request, "register_equipment_fermenter.html") #MUDAR LINK HTML
+    else:
+        name = request.POST['fermentername'] #MUDAR NOME QUE ESTA NO HTML
+        capacity = request.POST['fermentervolume'] #MUDAR NOME QUE ESTA NO HTML
+        medida = request.POST.get('medida',False) #NÃO MUDAR!
+        equipment = Equipment()
+        equipment.type_equipment = get_object_or_404(Type_Equipment, pk=1) #MUDAR PK PELO ID DO TIPO NO BANCO
+        equipment.medida = medida #NÃO MUDAR DAQUI PARA BAIXO
+        equipment.capacity = capacity
+        equipment.name = name
+        #ingrediente.unity = 0
+        equipment.save()
+
+        conteudo = {'msg': 'Cadastrado com sucesso'}
+        return render(request, "register_equipment_fermenter.html", conteudo) #MUDAR LINK HTML
+
 def register_equipment_filter(request):
-	return render(request, "register_equipment_filter.html")
+    if request.method  == 'GET':
+        return render(request, "register_equipment_filter.html") #MUDAR LINK HTML
+    else:
+        name = request.POST['filtername'] #MUDAR NOME QUE ESTA NO HTML
+        capacity = request.POST['filtervolume'] #MUDAR NOME QUE ESTA NO HTML
+        medida = request.POST.get('medida',False) #NÃO MUDAR!
+        equipment = Equipment()
+        equipment.type_equipment = get_object_or_404(Type_Equipment, pk=2) #MUDAR PK PELO ID DO TIPO NO BANCO
+        equipment.medida = medida #NÃO MUDAR DAQUI PARA BAIXO
+        equipment.capacity = capacity
+        equipment.name = name
+        #ingrediente.unity = 0
+        equipment.save()
+
+        conteudo = {'msg': 'Cadastrado com sucesso'}
+        return render(request, "register_equipment_filter.html", conteudo) #MUDAR LINK HTML
 
 def register_equipment_grinder(request):
-	return render(request, "register_equipment_grinder.html")
+    if request.method  == 'GET':
+        return render(request, "register_equipment_grinder.html") #MUDAR LINK HTML
+    else:
+        name = request.POST['grindername'] #MUDAR NOME QUE ESTA NO HTML
+        capacity = request.POST['grindervolume'] #MUDAR NOME QUE ESTA NO HTML
+        medida = request.POST.get('medida',False) #NÃO MUDAR!
+        equipment = Equipment()
+        equipment.type_equipment = get_object_or_404(Type_Equipment, pk=3) #MUDAR PK PELO ID DO TIPO NO BANCO
+        equipment.medida = medida #NÃO MUDAR DAQUI PARA BAIXO
+        equipment.capacity = capacity
+        equipment.name = name
+        #ingrediente.unity = 0
+        equipment.save()
+
+        conteudo = {'msg': 'Cadastrado com sucesso'}
+        return render(request, "register_equipment_grinder.html", conteudo) #MUDAR LINK HTML
+
 def register_equipment_kettle(request):
-	return render(request, "register_equipment_kettle.html")
-def view_recipes(request):
-	return render(request, "view_recipes.html")
+    if request.method  == 'GET':
+        return render(request, "register_equipment_kettle.html") #MUDAR LINK HTML
+    else:
+        name = request.POST['kettlename'] #MUDAR NOME QUE ESTA NO HTML
+        capacity = request.POST['kettlevolume'] #MUDAR NOME QUE ESTA NO HTML
+        medida = request.POST.get('medida',False) #NÃO MUDAR!
+        equipment = Equipment()
+        equipment.type_equipment = get_object_or_404(Type_Equipment, pk=4) #MUDAR PK PELO ID DO TIPO NO BANCO
+        equipment.medida = medida #NÃO MUDAR DAQUI PARA BAIXO
+        equipment.capacity = capacity
+        equipment.name = name
+        #ingrediente.unity = 0
+        equipment.save()
+
+        conteudo = {'msg': 'Cadastrado com sucesso'}
+        return render(request, "register_equipment_kettle.html", conteudo) #MUDAR LINK HTML
+
+class view_recipes(ListView):
+    model = Recipe
+    template_name = 'view_recipes.html'
+
 def production(request):
 	return render(request, "production.html")

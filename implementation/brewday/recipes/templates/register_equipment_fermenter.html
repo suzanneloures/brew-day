@@ -2,6 +2,7 @@
 {% block conteudo %}
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
+  {% csrf_token%}
   <fieldset>
     <div class="row">
 
@@ -14,11 +15,11 @@
               <label for="inomefermenter">Fermenter Name</label>
             </div>
 
-<!-- Tipo do Fermenter -->
+<!-- Tipo do Fermenter 
     		 <div class="input-field col s6 m6 l6">
             <input type="text" name="fermentertype" value="" id="itypefermenter" />
             <label for="itypefermenter">Type</label>
-         </div>
+         </div> -->
 
 <!-- Capacidade do Fermenter -->
          <div class="input-field col s2 m2 l2">
@@ -30,13 +31,13 @@
          <div class="col s4 m4 l4">
            <form>
             <div>
-             <input type="radio" id="imeasurelitrefermenter" name="fermenterlitre" value="litre">
+             <input type="radio" id="imeasurelitrefermenter" name="medida" value="L">
              <label for="imeasurelitrefermenter">Litre (l)</label>
 
-             <input type="radio" id="imeasurecubicmetrefermenter" name="fermentercubicmetre" value="cubicmetre">
+             <input type="radio" id="imeasurecubicmetrefermenter" name="medida" value="M3">
              <label for="imeasurecubicmetrefermenter">Cubic metre (m³)</label>
 
-             <input type="radio" id="imeasuregallonfermenter" name="fermentergallon" value="gallon">
+             <input type="radio" id="imeasuregallonfermenter" name="medida" value="GAL">
              <label for="imeasuregallonfermenter">Gallon (gal)</label>
 
             </div>
