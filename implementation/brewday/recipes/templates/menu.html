@@ -117,5 +117,13 @@ $( document ).ready(function(){
   $('.infinite-scroll').jscroll();
 });
 </script>
+{% if message %}
+<script>
+  {% if message == 'success' %}
+  Materialize.toast('Cadastro realizado', 3000, 'green');
+  {%endif%}
+</script>
+  {% endif %}
+
 </body>
 </html>

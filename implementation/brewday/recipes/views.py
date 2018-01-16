@@ -28,10 +28,16 @@ def access(request):
                 return HttpResponseRedirect(reverse('home'))
 
     else:
-        return render (request, "login.html")
+        if 'message' in request.session:
+            message = request.session['message']
+            del request.session['message']
+        else:
+            message = ''
+        return render (request, "login.html",{'message': message,})
 
 def register_user(request):
     if request.method  == 'GET':
+        
         return render(request, "register_user.html")
     else:
         name = request.POST['name']
@@ -54,10 +60,11 @@ def register_user(request):
             user = User.objects.create_user(email,email,password)
             user.first_name = name
             user.last_name = lname
-            user.save()       
+            user.save()
+            request.session['message'] = 'success'
             return HttpResponseRedirect(reverse('login'))
         else:
-            return render(request, "register_user.html",{'erros': erros})
+            return render(request, "register_user.html",{'erros': erros,})
 
 def home(request):
 	return render(request, "home.html")
@@ -128,8 +135,8 @@ def recipes(request):
             recipe_ingredient_additive.ingredient_id = int(additive)
             recipe_ingredient_additive.quantity = int(additive_qtd)
             recipe_ingredient_additive.save()
-
-
+        
+        conteudo['message']='success'
         return render(request, "register_recipes.html",conteudo)
 
 
@@ -153,7 +160,7 @@ def register_ingredient_additives(request):
         ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=5)
 
         ingrediente.save()
-        conteudo = {'msg': 'Cadastrado com sucesso'}
+        conteudo = {'message': 'success'}
         return render(request, "register_ingredient_additives.html", conteudo)
 
 def register_ingredient_hops(request):
@@ -176,7 +183,7 @@ def register_ingredient_hops(request):
 
         ingrediente.save()
 
-        conteudo = {'msg': 'Cadastrado com sucesso'}
+        conteudo = {'message': 'success'}
         return render(request, "register_ingredient_hops.html", conteudo)
 
 def register_ingredient_malt(request):
@@ -198,7 +205,7 @@ def register_ingredient_malt(request):
 
         ingrediente.save()
 
-        conteudo = {'msg': 'Cadastrado com sucesso'}
+        conteudo = {'message': 'success'}
         return render(request, "register_ingredient_malt.html", conteudo)
 
 def register_ingredient_sugar(request):
@@ -220,7 +227,7 @@ def register_ingredient_sugar(request):
 
         ingrediente.save()
 
-        conteudo = {'msg': 'Cadastrado com sucesso'}
+        conteudo = {'message': 'success'}
         return render(request, "register_ingredient_sugar.html", conteudo)
 
 def register_ingredient_yeasts(request):
@@ -242,7 +249,7 @@ def register_ingredient_yeasts(request):
 
         ingrediente.save()
 
-        conteudo = {'msg': 'Cadastrado com sucesso'}
+        conteudo = {'message': 'success'}
         return render(request, "register_ingredient_yeasts.html", conteudo)
 def view_equipment(request):
 	return render(request, "view_equipment.html")
@@ -262,7 +269,7 @@ def register_equipment_fermenter(request):
         #ingrediente.unity = 0
         equipment.save()
 
-        conteudo = {'msg': 'Cadastrado com sucesso'}
+        conteudo = {'message': 'success'}
         return render(request, "register_equipment_fermenter.html", conteudo) #MUDAR LINK HTML
 
 def register_equipment_filter(request):
@@ -280,7 +287,7 @@ def register_equipment_filter(request):
         #ingrediente.unity = 0
         equipment.save()
 
-        conteudo = {'msg': 'Cadastrado com sucesso'}
+        conteudo = {'message': 'success'}
         return render(request, "register_equipment_filter.html", conteudo) #MUDAR LINK HTML
 
 def register_equipment_grinder(request):
@@ -298,7 +305,7 @@ def register_equipment_grinder(request):
         #ingrediente.unity = 0
         equipment.save()
 
-        conteudo = {'msg': 'Cadastrado com sucesso'}
+        conteudo = {'message': 'success'}
         return render(request, "register_equipment_grinder.html", conteudo) #MUDAR LINK HTML
 
 def register_equipment_kettle(request):
@@ -316,7 +323,7 @@ def register_equipment_kettle(request):
         #ingrediente.unity = 0
         equipment.save()
 
-        conteudo = {'msg': 'Cadastrado com sucesso'}
+        conteudo = {'message': 'success'}
         return render(request, "register_equipment_kettle.html", conteudo) #MUDAR LINK HTML
 
 class view_recipes(ListView):
