@@ -33,13 +33,13 @@
           <h5 class="header col s12 amber-text text-accent-4">A modern solution for your brewing!</h5>
         </div>
         <div class="row center">
-          <a href="{% url 'register_user' %}" id="start-button" class="btn-large waves-effect waves-light amber accent-3">Get Started</a>
+          <a href="{% url 'login' %}" id="start-button" class="btn-large waves-effect waves-light amber accent-3">Get Started</a>
         </div>
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><img src="{% static "img/fundo01.jpg" %}" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="{% static "/img/fundo01.jpg" %}" alt="Unsplashed background img 1"></div>
   </div>
 
 
@@ -88,7 +88,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="{% static "img/fundo02.jpg" %}" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="{% static "/img/fundo.jpg" %}" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -117,9 +117,8 @@
         <div class="col l3 s12">
           <h5 class="white-text">Pages</h5>
           <ul>
-            <li><a class="white-text" href="#!">Home</a></li>
-            <li><a class="white-text" href="#!">Sign up</a></li>
-            <li><a class="white-text" href="#!">Login</a></li>
+            <li><a class="white-text" href="{% url 'register_user' %}">Sign up</a></li>
+            <li><a class="white-text" href="{% url 'login' %}">Login</a></li>
           </ul>
         </div>
         <div class="col l3 s12">

@@ -2,15 +2,15 @@
 {% block conteudo %}
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
-  
+
 
   {% csrf_token%}
   <fieldset>
     {% if msg %}
    <div class="card-panel  green darken-1">
-      
+
        <p class="white-text text-darken-2">{{msg}}</p>
-      
+
     </div>
    {%endif%}
     <div class="row">
@@ -59,7 +59,7 @@
 
         <div class="row">
             <div class="col s12 m10 offset-m1 l7 offset-l2">
-              <input type="submit" name="" value="Cancel" class="btn left col offset-l2 amber accent-4"  />
+              <a type="submit" name="" value="Cancel" href="{% url 'view_ingredients' %}" class="btn left amber accent-4"/>Cancel<a/>
               <input type="submit" name="" value="Submit" class="btn right col offset-l1 amber accent-4"  />
             </div>
           </div>
