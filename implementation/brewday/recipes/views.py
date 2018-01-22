@@ -9,7 +9,7 @@ from django.contrib import messages
 from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient, Equipment, Type_Equipment
 from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 def access(request):
@@ -160,7 +160,8 @@ def register_ingredient_additives(request):
         ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=5)
 
         ingrediente.save()
-        conteudo = {'message': 'success'}
+        conteudo = {'message': 'success'} 
+       # messages.success(request, 'Form submission successful')
         return render(request, "register_ingredient_additives.html", conteudo)
 
 def register_ingredient_hops(request):
@@ -345,3 +346,8 @@ class RecipeDelete(DeleteView):
     template_name = 'recipe_confirm_delete.html'
     model = Recipe
     success_url = reverse_lazy('view_recipes')
+
+class IngredientsEdit(UpdateView):
+    model = Ingredient
+    template_name = 'edit_ingredients.html'
+    fields = ['name', 'unity', 'quantity', 'type_ingredient']
