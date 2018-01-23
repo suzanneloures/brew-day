@@ -51,40 +51,40 @@
 <!--Botão Receitas -->
 
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">playlist_add_check</i>Recipe</a></li>
-            <ul id='dropdown1' class='dropdown-content'>
-              <li><a href="{% url 'view_recipes' %}"><i class="material-icons">visibility</i>View Recipe</a></li>
-              <li><a href="{% url 'recipes' %}"><i class="material-icons">playlist_add</i>Add Recipe</a></li>
+            <ul id='dropdown1' class='dropdown-content' style="overflow-y: visible;margin-left: 50%;">
+              <li><a href="{% url 'view_recipes' %}"><i class="material-icons">visibility</i>View</a></li>
+              <li><a href="{% url 'recipes' %}"><i class="material-icons">playlist_add</i>Add</a></li>
             </ul>
 
 <!--Botão Ingrediente -->
 
             <li><a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons">store</i>Ingredient</a></li>
-            <ul id='dropdown2' class='dropdown-content'>
-              <li><a href="{% url 'view_ingredients' %}"><i class="material-icons">visibility</i>View Ingredients</a></li>
-              <li><a class="dropdown-button" data-activates='dropdown21' data-hover="hover" href="#!"><i class="material-icons">playlist_add</i>Add Ingredient</a></li>
+            <ul id='dropdown2' class='dropdown-content' style="overflow-y: visible;margin-left: 50%;">
+              <li><a href="{% url 'view_ingredients' %}"><i class="material-icons">visibility</i>View</a></li>
+              <li><a class="dropdown-button" data-activates='dropdown21' data-hover="hover" href="#!"><i class="material-icons">playlist_add</i>Add</a></li>
             </ul>
 
-            <ul id='dropdown21' class='dropdown-content' style="overflow-y: visible;margin-top: 45px;" >
-                    <li><a href="{% url 'register_additives' %}"><i class="material-icons">playlist_add</i>Additive</a></li>
-                    <li><a href="{% url 'register_hops' %}"><i class="material-icons">playlist_add</i>Hop</a></li>
-                    <li><a href="{% url 'register_malt' %}"><i class="material-icons">playlist_add</i>Malt</a></li>
-                    <li><a href="{% url 'register_sugar' %}"><i class="material-icons">playlist_add</i>Sugar</a></li>
-                    <li><a href="{% url 'register_yeasts' %}"><i class="material-icons">playlist_add</i>Yeast</a></li>
+            <ul id='dropdown21' class='dropdown-content' style="overflow-y: visible;margin-top: 50px;margin-left: 10%;" >
+                    <li><a href="{% url 'register_additives' %}">Additive</a></li>
+                    <li><a href="{% url 'register_hops' %}">Hop</a></li>
+                    <li><a href="{% url 'register_malt' %}">Malt</a></li>
+                    <li><a href="{% url 'register_sugar' %}">Sugar</a></li>
+                    <li><a href="{% url 'register_yeasts' %}">Yeast</a></li>
 
                   </ul>
 
 <!--Botão Equipamento -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons">assignment</i>Equipment</a></li>
-            <ul id='dropdown3' class='dropdown-content'>
-            <li><a href="{% url 'view_equipment' %}"><i class="material-icons">visibility</i>View Equipment</a></li>
-             <li><a class="dropdown-button" data-activates='dropdown31' data-hover="hover" href="#!"><i class="material-icons">playlist_add</i>Add Equipment</a></li>
+            <ul id='dropdown3' class='dropdown-content' style="overflow-y: visible;margin-left: 50%;">
+            <li><a href="{% url 'view_equipment' %}"><i class="material-icons">visibility</i>View</a></li>
+             <li><a class="dropdown-button" data-activates='dropdown31' data-hover="hover" href="#!"><i class="material-icons">playlist_add</i>Add</a></li>
             </ul>
 
-            <ul id='dropdown31' class='dropdown-content' style="overflow-y: visible;margin-top: 45px;" >
-                      <li><a href="{% url 'register_fermenter' %}"><i class="material-icons">playlist_add</i>Fermenter</a></li>
-                      <li><a href="{% url 'register_filter' %}"><i class="material-icons">playlist_add</i>Filter</a></li>
-                      <li><a href="{% url 'register_grinder' %}"><i class="material-icons">playlist_add</i>Grinder</a></li>
-                      <li><a href="{% url 'register_kettle' %}"><i class="material-icons">playlist_add</i>Kettle</a></li>
+            <ul id='dropdown31' class='dropdown-content' style="overflow-y: visible;margin-top: 50px;margin-left: 10%;" >
+                      <li><a href="{% url 'register_fermenter' %}">Fermenter</a></li>
+                      <li><a href="{% url 'register_filter' %}">Filter</a></li>
+                      <li><a href="{% url 'register_grinder' %}">Grinder</a></li>
+                      <li><a href="{% url 'register_kettle' %}">Kettle</a></li>
               </ul>
 
 
