@@ -2,6 +2,7 @@
 {% block conteudo%}
 <!-- Formulário -->
 <form action="#" method="post" accept-charset="utf-8">
+  {% csrf_token%}
   <fieldset>
     <div class="row">
 
@@ -10,8 +11,8 @@
 <!-- Nome -->
         <p class="flow-text grey-text center">{{object.type_ingredient}} Register</p>
             <div class="input-field col s12 m12 l12">
-              <input type="text" name="additivesname" value="{{object.name}}" id="inomeadditives" autofocus />
-              <label for="inomeadditives">Additives Name</label>
+              <input type="text" name="name" value="{{object.name}}" id="inomeadditives" autofocus />
+              <label for="name">Additives Name</label>
             </div>
 
 <!-- Tipo do Additives 
@@ -22,7 +23,7 @@
 
 <!-- Quantidade do Additives -->
          <div class="input-field col s3 m3 l3">
-            <input type="number" name="additivesquantity" value="" id="iquantityadditives" />
+            <input type="number" name="quantity" value="{{object.quantity}}" id="iquantityadditives" />
             <label for="iquantityadditives">Quantity</label>
          </div>
 
@@ -30,11 +31,11 @@
          <div class="col s3 m3 l3">
            <form>
             <div>
-             <input type="radio" id="imeasuregramsadditives" name="additivesgrams" value="grams">
-             <label for="imeasuregramsadditives">Grams</label>
+             <input type="radio" id="unitygr" name="unity" {%if object.unity == 'GR'%}checked{%endif%} value="GR">
+             <label for="unitygr">Grams</label>
 
-             <input type="radio" id="imeasurekilogramsadditives" name="additiveskilograms" value="kilograms">
-             <label for="imeasurekilogramsadditives">Kilograms</label>
+             <input type="radio" id="unitykg" name="unity" {%if object.unity == 'KG'%}checked{%endif%} value="KG">
+             <label for="unitykg">Kilograms</label>
 
             </div>
            </form>

@@ -48,6 +48,7 @@ class Recipe_Ingredient (models.Model):
     ingredient = models.ForeignKey('Ingredient', null=True)
     quantity = models.FloatField()
 
+
 class Recipe_Equipment (models.Model):
     id_recipe = models.ForeignKey('Recipe', null=True)
     id_ingredient = models.ForeignKey('Ingredient', null=True)

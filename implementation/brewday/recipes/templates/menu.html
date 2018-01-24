@@ -117,6 +117,13 @@ $( document ).ready(function(){
   $('.infinite-scroll').jscroll();
 });
 </script>
+{% if messages %}
+<script>
+{% for message in messages %}
+      Materialize.toast('{{message}}', 3000, 'green');
+    {% endfor %}
+</script>
+{% endif %}
 {% if message %}
 <script>
   {% if message == 'success' %}

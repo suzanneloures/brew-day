@@ -10,7 +10,9 @@ from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient, Equi
 from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 
 def access(request):
     if request.method == 'POST':
@@ -347,7 +349,12 @@ class RecipeDelete(DeleteView):
     model = Recipe
     success_url = reverse_lazy('view_recipes')
 
-class IngredientsEdit(UpdateView):
+class IngredientsEdit(SuccessMessageMixin,UpdateView):
     model = Ingredient
     template_name = 'edit_ingredients.html'
     fields = ['name', 'unity', 'quantity', 'type_ingredient']
+    success_message = 'Ingrediente editado'
+
+class RecipeDetailView(DetailView):
+    model = Recipe
+    template_name = 'view_recipe.html'

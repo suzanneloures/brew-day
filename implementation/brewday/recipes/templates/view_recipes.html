@@ -25,6 +25,7 @@
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{recipe.title}}<i class="material-icons right">close</i></span>
+            <p><a class="right" href="{% url 'recipe_view' pk=recipe.id %}">View More</a></p></br>
             <p><a class="right" href="#">Edit</a></p></br>
             <p><a class="right" href="{% url 'delete_recipe' pk=recipe.id %}">Remove</a></p>
           </div>
