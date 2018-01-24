@@ -358,3 +358,8 @@ class IngredientsEdit(SuccessMessageMixin,UpdateView):
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'view_recipe.html'
+
+class EquipmentsEdit(UpdateView):
+    model = Equipment
+    template_name = 'edit_equipment'
+    fields = ['name', 'medida', 'capacity', 'type_equipment']

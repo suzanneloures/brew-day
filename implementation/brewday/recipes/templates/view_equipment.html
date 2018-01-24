@@ -24,7 +24,7 @@
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{equip.name}} - ({{equip.type_equipment}})<i class="material-icons right">close</i></span>
-            <p><a class="right" href="#">Edit</a></p></br>
+            <p><a class="right" href="{% url 'equipments_edit' pk=equip.id %}">Edit</a></p></br>
             <p><a class="right" href="#">Remove</a></p>
           </div>
 
