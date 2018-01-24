@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="parallax">
-           <img src="{% static "/img/fundo01.jpeg" %}">
+           <img src="{% static "/img/fundo02.jpg" %}">
       </div>
   </div>
 
@@ -90,7 +90,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="{% static "/img/fundo.jpg" %}" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="{% static "/img/fundo02.jpg" %}" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -144,7 +144,11 @@
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="{%static "/js/materialize.js" %}"></script>
-
+  <script>
+  $(document).ready(function(){
+    $('.parallax').parallax();
+  });
+  </script>
 
   </body>
 </html>
