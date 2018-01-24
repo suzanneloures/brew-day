@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from recipes import views
-from recipes.views import view_recipes, RecipeDelete, IngredientsView, EquipmentsView, IngredientsEdit, RecipeDetailView, EquipmentsEdit
+from recipes.views import view_recipes, RecipeDelete, IngredientsView, EquipmentsView, IngredientsEdit, RecipeDetailView, EquipmentsEdit, productionHistory
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^view_recipes/', view_recipes.as_view(), name="view_recipes"),
     url(r'^view_equipment/', EquipmentsView.as_view(), name="view_equipment"),
     url(r'^view_ingredients/', IngredientsView.as_view() , name="view_ingredients"),
+    url(r'^view_production_history/', views.productionHistory , name="production_history"),
     #REMOÇÃO
     url(r'^delete_recipe/(?P<pk>[\w]+)/', RecipeDelete.as_view(), name="delete_recipe"),
     #EDIÇÃO
@@ -52,8 +53,8 @@ urlpatterns = [
 
 
 
-    
-    
+
+
 
 
 

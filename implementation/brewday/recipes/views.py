@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponse 
+from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.core.validators import validate_email
 from django.http import HttpResponseRedirect
@@ -39,7 +39,7 @@ def access(request):
 
 def register_user(request):
     if request.method  == 'GET':
-        
+
         return render(request, "register_user.html")
     else:
         name = request.POST['name']
@@ -109,21 +109,21 @@ def recipes(request):
             recipe_ingredient_malt.ingredient_id = int(malt)
             recipe_ingredient_malt.quantity = int(malt_qtd)
             recipe_ingredient_malt.save()
-        
+
         if hop is not None:
             recipe_ingredient_hop = Recipe_Ingredient()
             recipe_ingredient_hop.recipe_id = int(recipe.id)
             recipe_ingredient_hop.ingredient_id = int(hop)
             recipe_ingredient_hop.quantity = int(hop_qtd)
             recipe_ingredient_hop.save()
-        
+
         if yeast is not None:
             recipe_ingredient_yeast = Recipe_Ingredient()
             recipe_ingredient_yeast.recipe_id = int(recipe.id)
             recipe_ingredient_yeast.ingredient_id = int(yeast)
             recipe_ingredient_yeast.quantity = int(yeast_qtd)
             recipe_ingredient_yeast.save()
-        
+
         if sugar is not None:
             recipe_ingredient_sugar = Recipe_Ingredient()
             recipe_ingredient_sugar.recipe_id = int(recipe.id)
@@ -137,7 +137,7 @@ def recipes(request):
             recipe_ingredient_additive.ingredient_id = int(additive)
             recipe_ingredient_additive.quantity = int(additive_qtd)
             recipe_ingredient_additive.save()
-        
+
         conteudo['message']='success'
         return render(request, "register_recipes.html",conteudo)
 
@@ -162,7 +162,7 @@ def register_ingredient_additives(request):
         ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=5)
 
         ingrediente.save()
-        conteudo = {'message': 'success'} 
+        conteudo = {'message': 'success'}
        # messages.success(request, 'Form submission successful')
         return render(request, "register_ingredient_additives.html", conteudo)
 
@@ -343,6 +343,9 @@ class EquipmentsView(ListView):
 
 def production(request):
 	return render(request, "production.html")
+
+def productionHistory(request):
+	return render(request, "production_history.html")
 
 class RecipeDelete(DeleteView):
     template_name = 'recipe_confirm_delete.html'
