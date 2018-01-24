@@ -2,4 +2,32 @@
 
 {% block conteudo%}
 
+<fieldset>
+  <div class="row">
+
+    <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel"></br>
+      <p class="flow-text amber-text accent-4 center">BrewDay!</p></br>
+          <p class="center brown-text text-darken-2">Olá Brewer, seja bem vindo a nossa ferramenta de produção!</p>
+
+      <div class="row">
+        <div class="center"></br></br>
+
+        <a type="submit" name="" value="Cancel" href="{% url 'view_recipes' %}" class="btn left amber accent-4" style="margin-left: 42%;"/>Recipe<a/></br></br>
+        <p class="brown-text text-darken-2">Na opção Recipe você poderá visualizar, adicionar, modificar ou remover suas receitas.</p></br>
+
+        <a type="submit" name="" value="Cancel" href="{% url 'view_ingredients' %}" class="btn left amber accent-4" style="margin-left: 39%;"/>Ingredient<a/></br></br>
+        <p class="brown-text text-darken-2">Na opção Ingredient você poderá visualizar, adicionar, modificar ou remover seus ingredient.</p></br>
+
+        <a type="submit" name="" value="Cancel" href="{% url 'view_equipment' %}" class="btn left amber accent-4" style="margin-left: 39%;"/>Equipment<a/></br></br>
+        <p class="brown-text text-darken-2">Na opção Equipment você poderá visualizar, adicionar, modificar ou remover suas Equipment.</p></br>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</fieldset>
+
+
 {% endblock %}
