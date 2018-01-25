@@ -360,6 +360,12 @@ class IngredientsEdit(SuccessMessageMixin,UpdateView):
     success_message = 'Ingrediente editado'
     success_url = reverse_lazy('view_ingredients')
 
+class IngredientDelete(DeleteView):
+    template_name = 'ingredient_confirm_delete.html'
+    model = Ingredient
+    success_url = reverse_lazy('view_ingredients')
+
+
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'view_recipe.html'
