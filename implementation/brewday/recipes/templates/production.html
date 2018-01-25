@@ -1,4 +1,3 @@
-
 {% extends 'menu.html' %}
 {% block conteudo%}
 
@@ -13,8 +12,15 @@
 
 <!-- Nome da Recipe: Escolha de uma receita já pré-cadastrado-->
             <div class="input-field col s12 m12 l12">
-              <input type="text" name="recipename" value="" id="inomefilter" autofocus />
-              <label for="inomefilter">Choose a Recipe</label>
+              <select name='codrecipe'>
+              {% for recipe in recipes  %}
+                <option value="{{recipe.id}}">
+                  {{recipe.title}}
+                </option>
+                {% endfor %}
+            </select>
+            <label for="inomeyeast">Choose a Recipe</label>
+              
             </div>
 
 <!-- Nome do Equipamento: Escolha de um equipamento já pré-cadastrado-->

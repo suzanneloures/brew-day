@@ -141,7 +141,6 @@ def recipes(request):
         conteudo['message']='success'
         return render(request, "register_recipes.html",conteudo)
 
-
 def view_ingredients(request):
 	return render(request, "view_ingredients.html")
 
@@ -342,7 +341,9 @@ class EquipmentsView(ListView):
     template_name = 'view_equipment.html'
 
 def production(request):
-	return render(request, "production.html")
+    recipes = Recipe.objects.all
+    content = {'recipes':recipes,}
+    return render(request, "production.html", content)
 
 def productionHistory(request):
 	return render(request, "production_history.html")
@@ -357,12 +358,26 @@ class IngredientsEdit(SuccessMessageMixin,UpdateView):
     template_name = 'edit_ingredients.html'
     fields = ['name', 'unity', 'quantity', 'type_ingredient']
     success_message = 'Ingrediente editado'
+    success_url = reverse_lazy('view_ingredients')
+
+class IngredientDelete(DeleteView):
+    template_name = 'ingredient_confirm_delete.html'
+    model = Ingredient
+    success_url = reverse_lazy('view_ingredients')
+
 
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'view_recipe.html'
 
-class EquipmentsEdit(UpdateView):
+class EquipmentsEdit(SuccessMessageMixin,UpdateView):
     model = Equipment
-    template_name = 'edit_equipment'
+    template_name = 'edit_equipments.html'
     fields = ['name', 'medida', 'capacity', 'type_equipment']
+    success_message = 'Equipamento Editado'
+    success_url = reverse_lazy('view_equipment')
+
+class EquipmentDelete(DeleteView):
+    template_name = 'equipment_confirm_delete.html'
+    model = Equipment
+    success_url = reverse_lazy('view_equipment')

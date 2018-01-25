@@ -26,7 +26,7 @@
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{ing.name}} - ({{ing.type_ingredient}})<i class="material-icons right">close</i></span>
             <p><a class="right" href="{% url 'ingredients_edit' pk=ing.id %}">Edit</a></p></br>
-            <p><a class="right" href="#">Remove</a></p>
+            <p><a class="right" href="{% url 'delete_ingredient' pk=ing.id %}">Remove</a></p>
           </div>
 
         </div>
