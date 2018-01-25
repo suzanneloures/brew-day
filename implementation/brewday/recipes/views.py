@@ -364,8 +364,14 @@ class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'view_recipe.html'
 
-class EquipmentsEdit(UpdateView):
+class EquipmentsEdit(SuccessMessageMixin,UpdateView):
     model = Equipment
     template_name = 'edit_equipments.html'
     fields = ['name', 'medida', 'capacity', 'type_equipment']
+    success_message = 'Equipamento Editado'
+    success_url = reverse_lazy('view_equipment')
 
+class EquipmentDelete(DeleteView):
+    template_name = 'equipment_confirm_delete.html'
+    model = Equipment
+    success_url = reverse_lazy('view_equipment')
