@@ -8,10 +8,10 @@
 
       <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
 
-<!-- Nome do Filter-->
-        <p class="flow-text grey-text center">Filter Register</p>
+<!-- Nome do Equipamemento-->
+        <p class="flow-text grey-text center">{{object.type_equipment}} Register</p>
             <div class="input-field col s12 m12 l12">
-              <input type="text" name="filtername" value="" id="inomefilter" autofocus />
+              <input type="text" name="filtername" value="{{object.name}}" id="inomefilter" autofocus />
               <label for="inomefilter">Filter Name</label>
             </div>
 
@@ -23,7 +23,7 @@
 
 <!-- Capacidade do Filter -->
          <div class="input-field col s2 m2 l2">
-            <input type="number" name="filtervolume" value="" id="ivolumefilter" />
+            <input type="number" name="filtervolume" value="{{object.capacity}}" id="ivolumefilter" />
             <label for="ivolumefilter">Volume</label>
          </div>
 

@@ -1,4 +1,3 @@
-
 {% extends 'menu.html' %}
 {% block conteudo%}
 
@@ -14,9 +13,9 @@
 <!-- Nome da Recipe: Escolha de uma receita já pré-cadastrado-->
             <div class="input-field col s12 m12 l12">
               <select name='codrecipe'>
-              {% for recipes in object_list %}
+              {% for recipe in recipes  %}
                 <option value="{{recipe.id}}">
-                  {{recipe.name}}
+                  {{recipe.title}}
                 </option>
                 {% endfor %}
             </select>
