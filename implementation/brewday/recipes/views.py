@@ -353,6 +353,10 @@ class RecipeDelete(DeleteView):
     model = Recipe
     success_url = reverse_lazy('view_recipes')
 
+class RecipeEdit(UpdateView):
+    template_name = 'edit_recipes.html'
+    
+
 class IngredientsEdit(SuccessMessageMixin,UpdateView):
     model = Ingredient
     template_name = 'edit_ingredients.html'

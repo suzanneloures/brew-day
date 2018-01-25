@@ -1,0 +1,134 @@
+{% extends 'menu.html' %}
+
+{% block conteudo %}
+<!-- Formulário -->
+<form action="#" method="post" accept-charset="utf-8">
+    {% csrf_token%}
+  <fieldset>
+    <div class="row">
+
+      <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
+
+<!-- Nome da Receita -->
+        <p class="flow-text grey-text center">Recipe Register</p>
+            <div class="input-field col s12 m12 l12">
+              <input type="text" name="name" value="" id="inomerecipe" autofocus />
+              <label for="inomerecipe">Recipe Name</label>
+            </div>
+            <div class="input-field col s12 m12 l12">
+              <input type="text" name="type" value="" id="itypebrew" autofocus />
+              <label for="itypebrew">Type Brew</label>
+            </div>
+
+
+<!-- Nome do Malt -->
+    		 <div class="input-field col s6 m6 l6">
+            <select name='codmalt'>
+              {% for malt in malts %}
+                <option value="{{malt.id}}">
+                  {{malt.name}} ({{malt.unity|lower}})
+                </option>
+                {% endfor %}
+            </select>
+            <label for="inomemalt">Malt</label>
+         </div>
+
+<!-- Quantidade do Malt -->
+         <div class="input-field col s3 m3 l3">
+            <input type="number" name="maltquantity" value="" id="iquantitymalt" />
+            <label for="iquantitymalt">Quantity</label>
+         </div>
+
+<!-- Nome do Hops -->
+        <div class="input-field col s6 m6 l6">
+
+          <select name='codhop'>
+              {% for hop in hops %}
+                <option value="{{hop.id}}">
+                  {{hop.name}} ({{hop.unity|lower}})
+                </option>
+                {% endfor %}
+            </select>
+            <label for="inomeyeast">Hop</label>
+        </div>
+
+<!-- Quantidade do Hops -->
+        <div class="input-field col s3 m3 l3">
+           <input type="number" name="hopsquantity" value="" id="iquantityhops" />
+           <label for="iquantityhops">Quantity</label>
+        </div>
+
+<!-- Nome do Yeast -->
+            <div class="input-field col s6 m6 l6">
+               <select name='codyeast'>
+              {% for yeast in yeasts %}
+                <option value="{{yeast.id}}">
+                  {{yeast.name}} ({{yeast.unity|lower}})
+                </option>
+                {% endfor %}
+            </select>
+              <label for="inomeyeast">Yeast</label>
+            </div>
+
+<!-- Quantidade do Yeast -->
+            <div class="input-field col s3 m3 l3">
+               <input type="number" name="yeastquantity" value="" id="iquantityyeast" />
+               <label for="iquantityyeast">Quantity</label>
+            </div>
+
+
+<!-- Nome do Sugar -->
+            <div class="input-field col s6 m6 l6">
+              <select name='codsugar'>
+              {% for sugar in sugars %}
+                <option value="{{sugar.id}}">
+                  {{sugar.name}} ({{sugar.unity|lower}})
+                </option>
+                {% endfor %}
+            </select>
+              <label for="inomesugar">Sugar</label>
+            </div>
+
+<!-- Quantidade do Sugar -->
+            <div class="input-field col s3 m3 l3">
+               <input type="number" name="sugarquantity" value="" id="iquantitysugar" />
+               <label for="iquantitysugar">Quantity</label>
+            </div>
+
+
+<!-- Nome do Additive -->
+            <div class="input-field col s6 m6 l6">
+                <select name='codadditive'>
+                    {% for additive in additives %}
+                      <option value="{{additive.id}}">
+                        {{additive.name}} ({{additive.unity|lower}})
+                      </option>
+                      {% endfor %}
+                  </select>
+              <label for="inomeadditive">Additive</label>
+            </div>
+
+<!-- Quantidade do Additive -->
+            <div class="input-field col s3 m3 l3">
+               <input type="number" name="additivequantity" value="" id="iquantityadditive" />
+               <label for="iquantityadditive">Quantity</label>
+            </div>
+
+<!-- Descrição -->
+          <div class="input-field col s12 m12 l12">
+              <textarea type="text" id="description" name='description' rows="12" cols="36" maxlength="500" class="materialize-textarea"></textarea>
+              <label for="idescriptionfermenter">Description</label>
+          </div>
+      </div>
+
+          <div class="row">
+            <div class="col s12 m10 offset-m1 l7 offset-l4">
+              <a type="submit" name="" value="Cancel" href="{% url 'view_recipes' %}" class="btn left amber accent-4"/>Cancel<a/>
+              <input type="submit" name="" value="Submit" class="btn right amber accent-4"  />
+            </div>
+          </div>
+      </div>
+  </fieldset>
+</form>
+
+    {% endblock %}
