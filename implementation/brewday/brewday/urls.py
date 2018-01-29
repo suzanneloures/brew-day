@@ -51,7 +51,7 @@ urlpatterns = [
     #EDIÇÃO
     url(r'ingredients_edit/(?P<pk>[0-9]+)/$', IngredientsEdit.as_view(), name='ingredients_edit'),
     url(r'edit_equipments/(?P<pk>[0-9]+)/$', EquipmentsEdit.as_view(), name='edit_equipments'),
-    url(r'edit_recipes/(?P<pk>[0-9]+)/$', RecipeEdit.as_view(), name='edit_recipes'),
+    url(r'edit_recipes/(?P<pk>[0-9]+)/$', RecipeEdit, name='edit_recipes'),
 
     #VISUALIZAÇÃO
     url(r'recipe/(?P<pk>[0-9]+)/$', RecipeDetailView.as_view(), name='recipe_view'),

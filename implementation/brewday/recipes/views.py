@@ -138,8 +138,8 @@ def recipes(request):
             recipe_ingredient_additive.quantity = int(additive_qtd)
             recipe_ingredient_additive.save()
 
-        conteudo['message']='success'
-        return render(request, "register_recipes.html",conteudo)
+        messages.success(request, 'Receita cadastrada')
+        return render(request, "register_recipes.html")
 
 def view_ingredients(request):
 	return render(request, "view_ingredients.html")
@@ -161,9 +161,9 @@ def register_ingredient_additives(request):
         ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=5)
 
         ingrediente.save()
-        conteudo = {'message': 'success'}
+        messages.success(request, 'Ingrediente cadastrado')
        # messages.success(request, 'Form submission successful')
-        return render(request, "register_ingredient_additives.html", conteudo)
+        return render(request, "register_ingredient_additives.html")
 
 def register_ingredient_hops(request):
     if request.method  == 'GET':
@@ -184,9 +184,8 @@ def register_ingredient_hops(request):
         ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=1)
 
         ingrediente.save()
-
-        conteudo = {'message': 'success'}
-        return render(request, "register_ingredient_hops.html", conteudo)
+        messages.success(request, 'Ingrediente cadastrado')
+        return render(request, "register_ingredient_hops.html")
 
 def register_ingredient_malt(request):
     if request.method  == 'GET':
@@ -206,9 +205,9 @@ def register_ingredient_malt(request):
         ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=3)
 
         ingrediente.save()
-
-        conteudo = {'message': 'success'}
-        return render(request, "register_ingredient_malt.html", conteudo)
+        messages.success(request, 'Ingrediente cadastrado')
+        
+        return render(request, "register_ingredient_malt.html")
 
 def register_ingredient_sugar(request):
     if request.method  == 'GET':
@@ -228,9 +227,9 @@ def register_ingredient_sugar(request):
         ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=2)
 
         ingrediente.save()
-
-        conteudo = {'message': 'success'}
-        return render(request, "register_ingredient_sugar.html", conteudo)
+        messages.success(request, 'Ingrediente cadastrado')
+        
+        return render(request, "register_ingredient_sugar.html")
 
 def register_ingredient_yeasts(request):
     if request.method  == 'GET':
@@ -250,9 +249,8 @@ def register_ingredient_yeasts(request):
         ingrediente.type_ingredient = get_object_or_404(Type_Ingredient, pk=4)
 
         ingrediente.save()
-
-        conteudo = {'message': 'success'}
-        return render(request, "register_ingredient_yeasts.html", conteudo)
+        messages.success(request, 'Ingrediente cadastrado')
+        return render(request, "register_ingredient_yeasts.html")
 def view_equipment(request):
 	return render(request, "view_equipment.html")
 
@@ -270,9 +268,9 @@ def register_equipment_fermenter(request):
         equipment.name = name
         #ingrediente.unity = 0
         equipment.save()
-
-        conteudo = {'message': 'success'}
-        return render(request, "register_equipment_fermenter.html", conteudo) #MUDAR LINK HTML
+        messages.success(request, 'Equipamento cadastrado')
+        
+        return render(request, "register_equipment_fermenter.html") #MUDAR LINK HTML
 
 def register_equipment_filter(request):
     if request.method  == 'GET':
@@ -288,9 +286,9 @@ def register_equipment_filter(request):
         equipment.name = name
         #ingrediente.unity = 0
         equipment.save()
-
-        conteudo = {'message': 'success'}
-        return render(request, "register_equipment_filter.html", conteudo) #MUDAR LINK HTML
+        messages.success(request, 'Equipamento cadastrado')
+        
+        return render(request, "register_equipment_filter.html") #MUDAR LINK HTML
 
 def register_equipment_grinder(request):
     if request.method  == 'GET':
@@ -353,8 +351,66 @@ class RecipeDelete(DeleteView):
     model = Recipe
     success_url = reverse_lazy('view_recipes')
 
-class RecipeEdit(UpdateView):
-    template_name = 'edit_recipes.html'
+def RecipeEdit(request,pk):
+    if request.method  == 'GET':
+        recipe = Recipe.objects.get(id=pk)
+        additives = Ingredient.objects.filter(type_ingredient__id = 5)
+        hops = Ingredient.objects.filter(type_ingredient__id = 1)
+        malts = Ingredient.objects.filter(type_ingredient__id = 3)
+        sugars = Ingredient.objects.filter(type_ingredient__id = 2)
+        yeasts = Ingredient.objects.filter(type_ingredient__id = 4)
+        ingredients = recipe.ingredients.all()
+        additive = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=5).get(recipe__id=pk)
+        hop = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=1).get(recipe__id=pk)
+        malt = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=3).get(recipe__id=pk)
+        sugar = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=2).get(recipe__id=pk)
+        yeast = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=4).get(recipe__id=pk)
+        content = {'additive_selected':additive,'hop_selected':hop,'malt_selected':malt,'sugar_selected':sugar,'yeast_selected':yeast,'additives':additives,'hops':hops,'malts':malts, 'sugars':sugars, 'yeasts':yeasts, 'recipe':recipe, 'ingredients':recipe.ingredients.all()}
+        return render(request, "edit_recipes.html", content)
+    else:
+        name_recipe = request.POST.get('name')
+        type_recipe = request.POST.get('type')
+        codmalt = request.POST.get('codmalt')
+        description = request.POST.get('description','')
+        maltquantity = request.POST.get('maltquantity',1)
+        codhop = request.POST.get('codhop')
+        hopquantity = request.POST.get('hopquantity',1)
+        codyeast = request.POST.get('codyeast')
+        yeastquantity = request.POST.get('yeastquantity',1)
+        codsugar = request.POST.get('codsugar')
+        sugarquantity = request.POST.get('sugarquantity',1)
+        codadditive = request.POST.get('codadditive')
+        additivequantity = request.POST.get('additivequantity',1)
+        
+        additive = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=5).get(recipe__id=pk)
+        additive.ingredient = Ingredient.objects.get(id=codadditive)
+        additive.quantity = additivequantity
+        additive.save()
+        
+        hop = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=1).get(recipe__id=pk)
+        hop.ingredient = Ingredient.objects.get(id=codhop)
+        hop.quantity = hopquantity
+        hop.save()
+        malt = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=3).get(recipe__id=pk)
+        malt.ingredient = Ingredient.objects.get(id=codmalt)
+        print(malt.id)
+        malt.quantity = maltquantity
+        malt.save()
+        sugar = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=2).get(recipe__id=pk)
+        sugar.ingredient = Ingredient.objects.get(id=codsugar)
+        sugar.quantity = sugarquantity
+        sugar.save()
+        yeast = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=4).get(recipe__id=pk)
+        yeast.ingredient = Ingredient.objects.get(id=codyeast)
+        yeast.quantity = yeastquantity
+        yeast.save()
+        recipe = Recipe.objects.get(id=pk)
+        recipe.title = name_recipe
+        recipe.type_brew = type_recipe
+        recipe.save()
+        messages.success(request, 'Receita alterada')
+        return HttpResponseRedirect(reverse('view_recipes'))
+
     
 
 class IngredientsEdit(SuccessMessageMixin,UpdateView):

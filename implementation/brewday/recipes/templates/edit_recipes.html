@@ -12,20 +12,21 @@
 <!-- Nome da Receita -->
         <p class="flow-text grey-text center">Recipe Register</p>
             <div class="input-field col s12 m12 l12">
-              <input type="text" name="name" value="" id="inomerecipe" autofocus />
+              <input type="text" name="name" value="{{recipe.title}}" id="inomerecipe" autofocus />
               <label for="inomerecipe">Recipe Name</label>
             </div>
             <div class="input-field col s12 m12 l12">
-              <input type="text" name="type" value="" id="itypebrew" autofocus />
+              <input type="text" name="type" value="{{recipe.type_brew}}" id="itypebrew" autofocus />
               <label for="itypebrew">Type Brew</label>
             </div>
 
 
 <!-- Nome do Malt -->
     		 <div class="input-field col s6 m6 l6">
-            <select name='codmalt'>
+           
+            <select name='codmalt' >
               {% for malt in malts %}
-                <option value="{{malt.id}}">
+                <option value="{{malt.id}}" {%if malt_selected.ingredient.id == malt.id%}selected{%endif%}>
                   {{malt.name}} ({{malt.unity|lower}})
                 </option>
                 {% endfor %}
@@ -35,7 +36,7 @@
 
 <!-- Quantidade do Malt -->
          <div class="input-field col s3 m3 l3">
-            <input type="number" name="maltquantity" value="" id="iquantitymalt" />
+            <input type="number" name="maltquantity" value="{{malt_selected.quantity}}" id="iquantitymalt" />
             <label for="iquantitymalt">Quantity</label>
          </div>
 
@@ -44,7 +45,7 @@
 
           <select name='codhop'>
               {% for hop in hops %}
-                <option value="{{hop.id}}">
+                <option value="{{hop.id}}" {%if hop_selected.ingredient.id == hop.id%}selected{%endif%}>
                   {{hop.name}} ({{hop.unity|lower}})
                 </option>
                 {% endfor %}
@@ -54,7 +55,7 @@
 
 <!-- Quantidade do Hops -->
         <div class="input-field col s3 m3 l3">
-           <input type="number" name="hopsquantity" value="" id="iquantityhops" />
+           <input type="number" name="hopquantity" value="{{hop_selected.quantity}}" id="iquantityhops" />
            <label for="iquantityhops">Quantity</label>
         </div>
 
@@ -62,7 +63,7 @@
             <div class="input-field col s6 m6 l6">
                <select name='codyeast'>
               {% for yeast in yeasts %}
-                <option value="{{yeast.id}}">
+                <option value="{{yeast.id}}" {%if yeast_selected.ingredient.id == yeast.id%}selected{%endif%}>
                   {{yeast.name}} ({{yeast.unity|lower}})
                 </option>
                 {% endfor %}
@@ -72,7 +73,7 @@
 
 <!-- Quantidade do Yeast -->
             <div class="input-field col s3 m3 l3">
-               <input type="number" name="yeastquantity" value="" id="iquantityyeast" />
+               <input type="number" name="yeastquantity" value="{{yeast_selected.quantity}}" id="iquantityyeast" />
                <label for="iquantityyeast">Quantity</label>
             </div>
 
@@ -81,7 +82,7 @@
             <div class="input-field col s6 m6 l6">
               <select name='codsugar'>
               {% for sugar in sugars %}
-                <option value="{{sugar.id}}">
+                <option value="{{sugar.id}}" {%if sugar_selected.ingredient.id == sugar.id%}selected{%endif%}>
                   {{sugar.name}} ({{sugar.unity|lower}})
                 </option>
                 {% endfor %}
@@ -91,16 +92,17 @@
 
 <!-- Quantidade do Sugar -->
             <div class="input-field col s3 m3 l3">
-               <input type="number" name="sugarquantity" value="" id="iquantitysugar" />
+               <input type="number" name="sugarquantity" value="{{sugar_selected.quantity}}" id="iquantitysugar" />
                <label for="iquantitysugar">Quantity</label>
             </div>
 
 
 <!-- Nome do Additive -->
             <div class="input-field col s6 m6 l6">
+                
                 <select name='codadditive'>
                     {% for additive in additives %}
-                      <option value="{{additive.id}}">
+                      <option value="{{additive.id}}" {%if additive_selected.ingredient.id == additive.id%}selected{%endif%} >
                         {{additive.name}} ({{additive.unity|lower}})
                       </option>
                       {% endfor %}
@@ -110,7 +112,7 @@
 
 <!-- Quantidade do Additive -->
             <div class="input-field col s3 m3 l3">
-               <input type="number" name="additivequantity" value="" id="iquantityadditive" />
+               <input type="number" name="quantityadditive" value="{{additive_selected.quantity}}" id="iquantityadditive" />
                <label for="iquantityadditive">Quantity</label>
             </div>
 
