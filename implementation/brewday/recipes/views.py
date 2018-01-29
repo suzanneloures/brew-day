@@ -206,7 +206,7 @@ def register_ingredient_malt(request):
 
         ingrediente.save()
         messages.success(request, 'Ingrediente cadastrado')
-        
+
         return render(request, "register_ingredient_malt.html")
 
 def register_ingredient_sugar(request):
@@ -228,7 +228,7 @@ def register_ingredient_sugar(request):
 
         ingrediente.save()
         messages.success(request, 'Ingrediente cadastrado')
-        
+
         return render(request, "register_ingredient_sugar.html")
 
 def register_ingredient_yeasts(request):
@@ -269,7 +269,7 @@ def register_equipment_fermenter(request):
         #ingrediente.unity = 0
         equipment.save()
         messages.success(request, 'Equipamento cadastrado')
-        
+
         return render(request, "register_equipment_fermenter.html") #MUDAR LINK HTML
 
 def register_equipment_filter(request):
@@ -287,7 +287,7 @@ def register_equipment_filter(request):
         #ingrediente.unity = 0
         equipment.save()
         messages.success(request, 'Equipamento cadastrado')
-        
+
         return render(request, "register_equipment_filter.html") #MUDAR LINK HTML
 
 def register_equipment_grinder(request):
@@ -346,6 +346,12 @@ def production(request):
 def productionHistory(request):
 	return render(request, "production_history.html")
 
+def brewday(request):
+	return render(request, "brewday.html")
+
+def brewdayResult(request):
+	return render(request, "brewday_result.html")
+
 class RecipeDelete(DeleteView):
     template_name = 'recipe_confirm_delete.html'
     model = Recipe
@@ -381,12 +387,12 @@ def RecipeEdit(request,pk):
         sugarquantity = request.POST.get('sugarquantity',1)
         codadditive = request.POST.get('codadditive')
         additivequantity = request.POST.get('additivequantity',1)
-        
+
         additive = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=5).get(recipe__id=pk)
         additive.ingredient = Ingredient.objects.get(id=codadditive)
         additive.quantity = additivequantity
         additive.save()
-        
+
         hop = Recipe_Ingredient.objects.filter(ingredient__type_ingredient__id=1).get(recipe__id=pk)
         hop.ingredient = Ingredient.objects.get(id=codhop)
         hop.quantity = hopquantity
@@ -411,7 +417,7 @@ def RecipeEdit(request,pk):
         messages.success(request, 'Receita alterada')
         return HttpResponseRedirect(reverse('view_recipes'))
 
-    
+
 
 class IngredientsEdit(SuccessMessageMixin,UpdateView):
     model = Ingredient

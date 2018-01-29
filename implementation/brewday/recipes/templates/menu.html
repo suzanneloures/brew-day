@@ -87,9 +87,15 @@
                       <li><a href="{% url 'register_kettle' %}">Kettle</a></li>
               </ul>
 
+<!-- Production -->
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown4"><i class="material-icons">insert_chart</i>Production</a></li>
+              <ul id='dropdown4' class='dropdown-content' style="overflow-y: visible;margin-left: 50%;">
+                <li><a href="{% url 'production' %}"><i class="material-icons">visibility</i>New</a></li>
+                <li><a href="{% url 'production_history' %}"><i class="material-icons">history</i>History</a></li>
+              </ul>
 
+            <li><a href="{% url 'brewday' %}"><i class="material-icons">star</i>BrewDay!</a></li>
 
-            <li><a href="{% url 'production_history' %}" ><i class="material-icons">insert_chart</i>Production</a></li>
             <li><div class="divider"></div></li>
             <li><a class="subheader">More</a></li>
             <li><a class="waves-effect" href="#!">Settings</a></li>
