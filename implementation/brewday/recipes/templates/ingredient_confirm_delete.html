@@ -5,11 +5,11 @@
     <fieldset>
         <div class='row'>
                 <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
-                    <p class="flow-text">Are you sure you want to delete ingredient "<strong>{{ object }}</strong>"?</p>
+                    <p class="center flow-text">Are you sure you want to delete ingredient "<strong>{{ object }}</strong>"?</p></br>
+                    <input type="submit" value="Confirm" class="btn right amber accent-4"/>
+                    <a type="cancel" href="{% url 'view_ingredients' %}" value="Cancel" class="btn left amber accent-4"  />Cancel<a/></br></br></br>
                 </div>
-                <input type="submit" value="Confirm" class="btn right amber accent-4"  />
-                <a type="cancel" href="{% url 'view_ingredients' %}" value="Cancel" class="btn right amber accent-4"  />Cancel<a/>
-        </div>
+      </div>
     </fieldset>
 </form>
 
