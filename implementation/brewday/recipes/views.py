@@ -6,7 +6,7 @@ from django.core.validators import validate_email
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
-from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient, Equipment, Type_Equipment
+from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient, Equipment, Type_Equipment, Production
 from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -57,6 +57,8 @@ def register_user(request):
             erros.append("Last Name can't be blank")
         if(len(password) == 0):
             erros.append("Password can't be blank")
+        if(User.objects.filter(username=email).exists()):
+            erros.append("User already exists")
 
         if(len(erros)==0):
             user = User.objects.create_user(email,email,password)
@@ -75,11 +77,11 @@ def index(request):
 	return render(request, "index.html")
 
 def recipes(request):
-    malts = Ingredient.objects.filter(type_ingredient_id = 3)
-    hops = Ingredient.objects.filter(type_ingredient_id = 1)
-    yeasts = Ingredient.objects.filter(type_ingredient_id = 4)
-    sugars = Ingredient.objects.filter(type_ingredient_id = 2)
-    additives = Ingredient.objects.filter(type_ingredient_id = 5)
+    malts = Ingredient.objects.filter(type_ingredient_id = 3).filter(user=request.user)
+    hops = Ingredient.objects.filter(type_ingredient_id = 1).filter(user=request.user)
+    yeasts = Ingredient.objects.filter(type_ingredient_id = 4).filter(user=request.user)
+    sugars = Ingredient.objects.filter(type_ingredient_id = 2).filter(user=request.user)
+    additives = Ingredient.objects.filter(type_ingredient_id = 5).filter(user=request.user)
     conteudo = {'malts':malts, 'hops': hops, 'yeasts':yeasts, 'sugars': sugars, 'additives': additives}
     if request.method  == 'GET':
 	    return render(request, "register_recipes.html", conteudo)
@@ -101,6 +103,7 @@ def recipes(request):
         recipe.title = name_recipe
         recipe.type_brew = type_recipe
         recipe.description = description
+        recipe.user = request.user
         recipe.save()
 
         if malt is not None:
@@ -154,6 +157,7 @@ def register_ingredient_additives(request):
         ingrediente = Ingredient()
         ingrediente.name = additivesname
         ingrediente.quantity = additivesquantity
+        ingrediente.user_id = request.user.id
         if unity:
             ingrediente.unity = 'GR'
         else:
@@ -176,6 +180,7 @@ def register_ingredient_hops(request):
         ingrediente = Ingredient()
         ingrediente.name = maltname
         #ingrediente.unity = 0
+        ingrediente.user_id = request.user.id
         ingrediente.quantity = hopsquantity
         if unity:
             ingrediente.unity = 'GR'
@@ -197,6 +202,7 @@ def register_ingredient_malt(request):
         ingrediente = Ingredient()
         ingrediente.name = maltname
         #ingrediente.unity = 0
+        ingrediente.user_id = request.user.id
         ingrediente.quantity = maltquantity
         if unity:
             ingrediente.unity = 'GR'
@@ -218,6 +224,7 @@ def register_ingredient_sugar(request):
         unity = request.POST.get('imeasuregramssugar',False)
         ingrediente = Ingredient()
         ingrediente.name = sugarname
+        ingrediente.user_id = request.user.id
         #ingrediente.unity = 0
         ingrediente.quantity = sugarquantity
         if unity:
@@ -240,6 +247,7 @@ def register_ingredient_yeasts(request):
         unity = request.POST.get('yeastsgrams',False)
         ingrediente = Ingredient()
         ingrediente.name = yeastsname
+        ingrediente.user_id = request.user.id
         #ingrediente.unity = 0
         ingrediente.quantity = yeastsquantity
         if unity:
@@ -262,6 +270,7 @@ def register_equipment_fermenter(request):
         capacity = request.POST['fermentervolume'] #MUDAR NOME QUE ESTA NO HTML
         medida = request.POST.get('medida',False) #NÃO MUDAR!
         equipment = Equipment()
+        equipment.user_id = request.user.id
         equipment.type_equipment = get_object_or_404(Type_Equipment, pk=1) #MUDAR PK PELO ID DO TIPO NO BANCO
         equipment.medida = medida #NÃO MUDAR DAQUI PARA BAIXO
         equipment.capacity = capacity
@@ -284,6 +293,7 @@ def register_equipment_filter(request):
         equipment.medida = medida #NÃO MUDAR DAQUI PARA BAIXO
         equipment.capacity = capacity
         equipment.name = name
+        equipment.user_id = request.user.id
         #ingrediente.unity = 0
         equipment.save()
         messages.success(request, 'Equipamento cadastrado')
@@ -302,6 +312,7 @@ def register_equipment_grinder(request):
         equipment.medida = medida #NÃO MUDAR DAQUI PARA BAIXO
         equipment.capacity = capacity
         equipment.name = name
+        equipment.user_id = request.user.id
         #ingrediente.unity = 0
         equipment.save()
 
@@ -320,6 +331,7 @@ def register_equipment_kettle(request):
         equipment.medida = medida #NÃO MUDAR DAQUI PARA BAIXO
         equipment.capacity = capacity
         equipment.name = name
+        equipment.user_id = request.user.id
         #ingrediente.unity = 0
         equipment.save()
 
@@ -339,9 +351,39 @@ class EquipmentsView(ListView):
     template_name = 'view_equipment.html'
 
 def production(request):
-    recipes = Recipe.objects.all
-    content = {'recipes':recipes,}
-    return render(request, "production.html", content)
+    recipes = Recipe.objects.filter(user=request.user)
+    equipments = Equipment.objects.filter(user=request.user)
+    content = {'recipes':recipes,'equipments':equipments}
+    
+    if request.method == 'GET':
+        return render(request, "production.html", content)
+    else:
+        codrecipe = request.POST.get('codrecipe')
+        codequip = request.POST.get('codequipment')
+        recipe = Recipe.objects.get(id=codrecipe)
+        equip = Equipment.objects.get(id=codequip)
+        ingreds = Recipe_Ingredient.objects.filter(recipe__id=codrecipe)
+        erros = []
+        for i in ingreds:
+            ingredient = Ingredient.objects.get(id=i.ingredient.id)
+            if(ingredient.quantity < i.quantity * equip.capacity):
+                messages.error(request, 'Ingredient ' + ingredient.name + ' has out of stock')
+                
+            
+        if(len(erros)==0):
+            for i in ingreds:
+                ingredient = Ingredient.objects.get(id=i.ingredient.id)
+                ingredient.quantity = ingredient.quantity - (i.quantity * equip.capacity)
+                ingredient.save()
+            prod = Production()
+            prod.user = request.user
+            prod.quantity_brew = equip.capacity
+            prod.id_recipe = recipe
+            prod.save()
+            messages.success(request, 'Production succeed.')
+        
+        return render(request, "production.html", content)
+        
 
 def productionHistory(request):
 	return render(request, "production_history.html")

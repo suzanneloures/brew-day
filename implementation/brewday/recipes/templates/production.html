@@ -25,13 +25,19 @@
                 </option>
                 {% endfor %}
             </select>
-            <label for="inomeyeast">Choose a Recipe</label>
-
+            <label for="codequipment">Choose a Recipe</label>
+            
             </div>
 
 <!-- Nome do Equipamento: Escolha de um equipamento já pré-cadastrado-->
         <div class="input-field col s12 m12 l12">
-            <input type="text" name="recipename" value="" id="inomefilter" autofocus />
+          <select name='codequipment'>
+            {% for equipment in equipments  %}
+              <option value="{{equipment.id}}">
+                {{equipment.name}}
+              </option>
+              {% endfor %}
+          </select>
             <label for="inomefilter">Choose a Equipment</label>
         </div>
 

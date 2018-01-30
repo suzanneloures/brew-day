@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Recipe (models.Model):
+    user = models.ForeignKey(User)
     title = models.CharField(max_length=300)
     type_brew = models.CharField(max_length=300)
     description = models.TextField()
@@ -12,6 +13,7 @@ class Recipe (models.Model):
         return self.title
     
 class Ingredient (models.Model):  # tipo de ingrediente criar 
+    user = models.ForeignKey(User)
     YEAR_IN_SCHOOL_CHOICES = (
     ('GR', 'Gr'),
     ('KG', 'Kg'))
@@ -34,11 +36,13 @@ class Equipment (models.Model):
     #unit_dimension = models.CharField(max_length=45)
     type_equipment = models.ForeignKey('Type_Equipment', null=True)
     description = models.TextField()
+    user = models.ForeignKey(User)
 
     def __str__(self):
         return self.name
 
 class Production (models.Model):
+    user = models.ForeignKey(User)
     quantity_brew = models.FloatField()
     id_recipe = models.ForeignKey('Recipe', null=True)
 
@@ -47,7 +51,6 @@ class Recipe_Ingredient (models.Model):
     recipe = models.ForeignKey('Recipe', null=True)
     ingredient = models.ForeignKey('Ingredient', null=True)
     quantity = models.FloatField()
-
 
 class Recipe_Equipment (models.Model):
     id_recipe = models.ForeignKey('Recipe', null=True)

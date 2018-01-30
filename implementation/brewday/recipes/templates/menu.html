@@ -126,7 +126,12 @@ $( document ).ready(function(){
 {% if messages %}
 <script>
 {% for message in messages %}
+      {% if message.tags == 'error'%}
+      Materialize.toast('{{message}}', 10000, 'red');
+      {%else%}
       Materialize.toast('{{message}}', 3000, 'green');
+      {%endif%}
+      
     {% endfor %}
 </script>
 {% endif %}
