@@ -34,7 +34,7 @@
             <span class="card-title grey-text text-darken-4">{{recipe.title}}<i class="material-icons right">close</i></span>
             <!--<p><a class="right" href="{% url 'recipe_view' pk=recipe.id %}">View More</a></p></br>-->
             {% for ing in recipe.ingredients.all %}
-            <p> <li>{{ing.name}} </li> </p>
+            <p> <li>{{ing.name}}</li> </p>
             {%endfor%}
             <p><a class="right" href="{% url 'recipe_view' pk=recipe.id %}">View More</a></p></br>
             <p><a class="right" href="{% url 'edit_recipes' pk=recipe.id %}">Edit</a></p></br>
