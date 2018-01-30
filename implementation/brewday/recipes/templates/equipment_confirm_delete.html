@@ -1,7 +1,15 @@
 {% extends 'menu.html' %}
 {% block conteudo %}
+{% load static%}
 
-<form action="" method="post">{% csrf_token %}
+<style>
+    .home {
+          background-image: url("{% static "/img/home_fundo.jpg" %}");
+          background-size: contain;
+    }
+  </style>
+
+<form action="" method="post" class="home">{% csrf_token %}
     <fieldset>
         <div class='row'>
                 <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
