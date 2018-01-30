@@ -1,6 +1,14 @@
 {% extends 'menu.html' %}
 {% block conteudo%}
+{% load static%}
+<style>
+  .home {
+        background-image: url("{% static "/img/home_fundo.jpg" %}");
+        background-size: contain;
+  }
+</style>
 <!-- Formulário -->
+<div class="home">
   <div class="row">
     {% for ing in object_list %}
     <div class="col s12 m8 offset-m1 l7 offset-l4">
@@ -34,4 +42,5 @@
     </div>
     {%endfor%}
   </div>
+</div>
 {% endblock %}

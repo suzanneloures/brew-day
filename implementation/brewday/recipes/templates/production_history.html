@@ -1,7 +1,15 @@
 
 {% extends 'menu.html' %}
 {% block conteudo%}
+{% load static%}
 
+<style>
+    .home {
+          background-image: url("{% static "/img/home_fundo.jpg" %}");
+          background-size: contain;
+    }
+  </style>
+<div class="home">  
 <div class="row">
       <table>
           <thead>
@@ -24,5 +32,6 @@
 </div>
 <div class="row">
   <a class="btn right amber accent-4" href="{% url 'production' %}">Production</a>
+</div>
 </div>
 {% endblock %}

@@ -1,7 +1,17 @@
 {% extends 'menu.html' %}
 {% block conteudo %}
+
+{% load static%}
 <!-- Formulário -->
-<form action="" method="post" accept-charset="utf-8">
+
+<style>
+    .home {
+          background-image: url("{% static "/img/home_fundo.jpg" %}");
+          background-size: contain;
+    }
+  </style>
+
+<form action="" method="post" accept-charset="utf-8" class="home">
   {% csrf_token%}
   <fieldset>
     <div class="row">
