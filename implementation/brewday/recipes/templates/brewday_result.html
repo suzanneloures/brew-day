@@ -9,7 +9,20 @@
 </style>
 <!-- Formulário -->
 {%if result|length == 0%}
-<div class="col s12 m8 offset-m1 l7 offset-l4">Oops. There is no recipe with available ingredients.</div>
+<div class="row">
+<div class="col s12 m8 offset-m1 l7 offset-l4">
+  <div class="card sticky-action">
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img src="{% static "/img/not_found.jpeg" %}">
+      </div>
+      <div class="card-content">
+        <p class="center red-text text-darken-2"><i>There is no recipe or ingredients available.</i></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 {%endif%}
 <div class="home">
   <div class="row">
