@@ -28,10 +28,11 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center amber-text text-accent-4">BrewDay!</h1>
+        <h1 class="header center amber-text text-accent-4">BrewDay!</h1></br>
         <div class="row center">
           <h4 class="header col s12 amber-text text-accent-4">A modern solution for your brewing!</h4>
         </div>
+      </br>
         <div class="row center">
           <a href="{% url 'login' %}" id="start-button" class="btn-large waves-effect waves-light amber accent-3">Get Started</a>
         </div>
@@ -52,28 +53,28 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">playlist_add_check</i></h2>
+            <h2 class="center brown-text"><i class="material-icons large">playlist_add_check</i></h2>
             <h5 class="center">Save your Recipes</h5>
 
-            <p class="light">Be able to save your own recipe and make changes anytime you want</p>
+            <p class="light center">Be able to save your own recipe and make changes anytime you want</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">store</i></h2>
+            <h2 class="center brown-text"><i class="material-icons large">store</i></h2>
             <h5 class="center">Organize your Ingredients</h5>
 
-            <p class="light">Control and manage your storage</p>
+            <p class="light center">Control and manage your storage</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">insert_chart</i></h2>
+            <h2 class="center brown-text"><i class="material-icons large">insert_chart</i></h2>
             <h5 class="center">Control your Production</h5>
 
-            <p class="light">Make your beer and let us do the rest</p>
+            <p class="light center">Make your beer and let us do the rest</p>
           </div>
         </div>
       </div>
@@ -84,13 +85,15 @@
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
-      <div class="icon-block">
+
         <div class="row center">
-          <h5 class="header left amber-text text-accent-4" style="margin: 250%;">Simples and Efficient</h5>
+          <p><h2 class="left amber-text text-accent-4" style="margin-left: 110%;">Simple and Efficient</h2></p>
         </div>
-      </div>
+
     </div>
-    <div class="parallax"><img src="{% static "/img/fundo03.jpg" %}" alt="Unsplashed background img 2"></div>
+    <div class="parallax">
+      <img src="{% static "/img/fundo03.jpg" %}">
+    </div>
   </div>
 
   <div class="container">
@@ -99,8 +102,9 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4 class="header center brown-text">O que é o BrewDay</h4>
-          <p class="left-align light">Sobre o projeto</p>
+          <h4 class="header center brown-text">What is BrewDay ?</h4></br>
+          <p class="left-align light">
+Brew Day! is an application that allows home brewers to maintain an organized database of their beer recipes. The application allows users to create, store and modify recipes, and later on delete them, if the user wishes to do so. The application is intended for "all-grain" brewers only, and thus all recipes are for this kind of brews (the "extract" brews are not supported).</p></br>
         </div>
       </div>
 
