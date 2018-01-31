@@ -546,7 +546,7 @@ class RecipeDetailView(DetailView):
 class EquipmentsEdit(SuccessMessageMixin,UpdateView):
     model = Equipment
     template_name = 'edit_equipments.html'
-    fields = ['name', 'medida', 'capacity', 'type_equipment', 'description']
+    fields = ['name', 'medida', 'capacity', 'type_equipment']
     success_message = 'Equipamento Editado'
     success_url = reverse_lazy('view_equipment')
 
