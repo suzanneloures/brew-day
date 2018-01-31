@@ -38,7 +38,7 @@ def access(request):
             message = ''
         return render (request, "login.html",{'message': message,})
 
-
+@login_required
 def register_user(request):
     if request.method  == 'GET':
 
@@ -75,7 +75,7 @@ def register_user(request):
 def home(request):
 	return render(request, "home.html")
 
-
+@login_required
 def index(request):
 	return render(request, "index.html")
 
@@ -386,7 +386,12 @@ def production(request):
         erros = []
         for i in ingreds:
             ingredient = Ingredient.objects.get(id=i.ingredient.id)
-            if(ingredient.quantity < i.quantity * equip.capacity):
+            capacity = equip.capacity
+            if equip.medida == 'M3':
+                capacity = capacity * 1000
+            elif equip.medida == 'GAL':
+                capacity = capacity * 3.78541
+            if(ingredient.quantity < i.quantity * capacity):
                 erros.append("a")
                 messages.error(request, 'Ingredient ' + ingredient.name + ' has out of stock')
             
@@ -541,7 +546,7 @@ class RecipeDetailView(DetailView):
 class EquipmentsEdit(SuccessMessageMixin,UpdateView):
     model = Equipment
     template_name = 'edit_equipments.html'
-    fields = ['name', 'medida', 'capacity', 'type_equipment']
+    fields = ['name', 'medida', 'capacity', 'type_equipment', 'description']
     success_message = 'Equipamento Editado'
     success_url = reverse_lazy('view_equipment')
 
