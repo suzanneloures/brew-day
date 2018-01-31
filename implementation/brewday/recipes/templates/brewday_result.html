@@ -37,11 +37,12 @@
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{prod.date}}<i class="material-icons right ">more_vert</i></span>
-            <p><i>{{r.recipe}}</i></p>
-            <p><i>{{r.quantity}} liters</i></p>
+            <p class="center amber-text text-darken-2"><i>{{r.recipe}}</i></p>
+            <p class="center brown-text text-darken-1" ><i>{{r.quantity}} liters</i></p>
           </div>
           <div class="card-reveal">
-            <span class="card-title center grey-text text-darken-4" style="margin-left: 20px;">"Info"<i class="material-icons right">close</i></span>
+            <span class="card-title center amber-text text-darken-2" style="margin-left: 20px;">{{r.recipe}}<i class="material-icons black-text right">close</i></span>
+            <p><a class="right" href="{% url 'production' %}">Production</a></p></br>
             <p><a class="right" href="#">Remove</a></p>
           </div>
 
