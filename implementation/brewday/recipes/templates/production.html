@@ -14,7 +14,7 @@
 
       <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
 
-      <p class="flow-text grey-text center">Production</p>
+      <p class="flow-text amber-text text-darken-2 center">Production</p>
 
 <!-- Nome da Recipe: Escolha de uma receita já pré-cadastrado-->
             <div class="input-field col s12 m12 l12">
@@ -26,7 +26,7 @@
                 {% endfor %}
             </select>
             <label for="codequipment">Choose a Recipe</label>
-            
+
             </div>
 
 <!-- Nome do Equipamento: Escolha de um equipamento já pré-cadastrado-->
@@ -44,12 +44,11 @@
 <!-- Ao pressionar o botão o usuário confirma a produção e o valor de cada
 ingrediente contido na receita escolhida é subtraído dos ingredientes -->
 
-        <div class="row">
-            <div class="col s12 m10 offset-m1 l7 offset-l2">
-              <a type="cancel" href="{% url 'production_history' %}" value="Cancel" class="btn left amber accent-4" />Cancel<a/>
-              <input type="submit" name="" value="Submit" class="btn right amber accent-4"  />
-            </div>
-          </div>
+        <div class="col s12 m12 l12" style="margin-top: 2%;margin-bottom: 3%;">
+              <a type="cancel" href="{% url 'production_history' %}" value="Cancel" class="btn center amber accent-4"  style="margin-left: 25%;" />Cancel<a/>
+              <input type="submit" name="" value="Submit" class="btn center amber accent-4"  style="margin-left: 12%;" />
+        </div>
+
       </div>
   </fieldset>
 </form>
