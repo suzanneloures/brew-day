@@ -31,10 +31,10 @@
             <span class="card-title activator grey-text text-darken-4">{{ing.name}} - ({{ing.type_ingredient}})<i class="material-icons right ">more_vert</i></span>
             <p><i>Quantity : {{ing.quantity}} {{ing.unity}}</i></p>
           </div>
-          <div class="card-reveal">
+          <div class="card-reveal center">
             <span class="card-title center grey-text text-darken-4" style="margin-left: 40px;" >{{ing.name}} - ({{ing.type_ingredient}})<i class="material-icons right">close</i></span>
-            <p><a class="right" href="{% url 'ingredients_edit' pk=ing.id %}">Edit</a></p></br>
-            <p><a class="right" href="{% url 'delete_ingredient' pk=ing.id %}">Remove</a></p></br>
+            <p><a class="" href="{% url 'ingredients_edit' pk=ing.id %}">Edit</a></p>
+            <p><a class="" href="{% url 'delete_ingredient' pk=ing.id %}">Remove</a></p></br>
           </div>
 
         </div>

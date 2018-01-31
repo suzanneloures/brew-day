@@ -1,0 +1,79 @@
+{% extends 'menu.html' %}
+{% block conteudo %}
+{% load static%}
+<style>
+  .home {
+        background-image: url("{% static "/img/home_fundo.jpg" %}");
+        background-size: contain;
+  }
+</style>
+<!-- Formulário -->
+<form action="#" method="post" accept-charset="utf-8" class="home">
+  {% csrf_token%}
+  <fieldset>
+    <div class="row">
+
+      <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel">
+        <p class="flow-text center grey-text">Perfil Changes</p><br>
+    {% if erros %}
+       <div class="card-panel  red darken-1">
+          {% for erro in erros %}
+           <p class="white-text text-darken-2">{{erro}}</p>
+          {%endfor%}
+        </div>
+       {%endif%}
+        <form action="" method="post" accept-charset="utf-8">
+          {% csrf_token%}
+          <div class="row">
+
+    {% if messages %}
+    <ul class="messages">
+         {% for message in messages %}
+         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{message }}</li>
+         {% endfor %}
+    </ul>
+    {% endif %}
+
+            <div class="input-field col s12 m6">
+              <input type="text" name="name" value="" id="inome" autofocus />
+              <label for="inome">Name</label>
+            </div>
+
+    		 <div class="input-field col s12 m6">
+            <input type="text" name="lname" value="" id="inome" autofocus />
+            <label for="inome">Last Name</label>
+         </div>
+
+            <div class="input-field col s12 m6">
+              <input type="text" name="email" value="" id="iemail"  />
+              <label for="iemail">Email address</label>
+            </div>
+
+            <div class="input-field col s12 m6">
+              <input type="text" name="email2" value="" id="iemail2"  />
+              <label for="iemail2">Confirm Email address</label>
+            </div>
+
+            <div class="input-field col s12 m6">
+              <input type="password" name="pass" value="" id="isenha"  />
+              <label for="isenha">Password</label>
+            </div>
+
+            <div class="input-field col s12 m6">
+              <input type="password" name="senha2" value="" id="isenha2"  />
+              <label for="isenha2">Confirm Password</label>
+            </div>
+      </div>
+
+          <div class="row">
+            <div class="col s12">
+              <input type="reset" name="" value="Clear" class="btn left grey"  />
+              <input type="submit" name="" value="Change" class="btn right amber accent-4"  />        </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </fieldset>
+</form>
+{%endblock%}

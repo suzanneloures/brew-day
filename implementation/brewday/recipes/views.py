@@ -354,7 +354,7 @@ def production(request):
     recipes = Recipe.objects.filter(user=request.user)
     equipments = Equipment.objects.filter(user=request.user)
     content = {'recipes':recipes,'equipments':equipments}
-    
+
     if request.method == 'GET':
         return render(request, "production.html", content)
     else:
@@ -368,8 +368,8 @@ def production(request):
             ingredient = Ingredient.objects.get(id=i.ingredient.id)
             if(ingredient.quantity < i.quantity * equip.capacity):
                 messages.error(request, 'Ingredient ' + ingredient.name + ' has out of stock')
-                
-            
+
+
         if(len(erros)==0):
             for i in ingreds:
                 ingredient = Ingredient.objects.get(id=i.ingredient.id)
@@ -381,9 +381,9 @@ def production(request):
             prod.id_recipe = recipe
             prod.save()
             messages.success(request, 'Production succeed.')
-        
+
         return render(request, "production.html", content)
-        
+
 
 def productionHistory(request):
 	return render(request, "production_history.html")
@@ -393,6 +393,9 @@ def brewday(request):
 
 def brewdayResult(request):
 	return render(request, "brewday_result.html")
+
+def user(request):
+	return render(request, "user.html")
 
 class RecipeDelete(DeleteView):
     template_name = 'recipe_confirm_delete.html'
