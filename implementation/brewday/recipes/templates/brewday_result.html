@@ -1,28 +1,41 @@
-
 {% extends 'menu.html' %}
-{% block conteudo%}
+{% block conteudo %}
+{% load static%}
+<style>
+  .home {
+        background-image: url("{% static "/img/home_fundo.jpg" %}");
+        background-size: contain;
+  }
+</style>
+<!-- Formulário -->
+{%if result|length == 0%}
+<div col s12 m8 offset-m1 l7 offset-l4>Oops. There is no recipe with available ingredients.</div>
+{%endif%}
+<div class="home">
+  <div class="row">
 
-<div class="row">
-      <table>
-          <thead>
-            <tr>
-               <th>ID</th>
-              <th>Recipe</th>
-              <th>Equipament</th>
-            </tr>
-          </thead>
-          <body>
 
-              <tr>
-                <td>{{        }}</td>
-                <td>{{        }}</td>
-                <td>{{        }}</td>
-              </tr>
+{%for r in result %}
+    <div class="col s12 m8 offset-m1 l7 offset-l4">
+      <div class="card sticky-action">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img src="{% static "/img/fundo02.jpg" %}">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{prod.date}}<i class="material-icons right ">more_vert</i></span>
+            <p><i>{{r.recipe}}</i></p>
+            <p><i>{{r.quantity}} liters</i></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title center grey-text text-darken-4" style="margin-left: 20px;">"Info"<i class="material-icons right">close</i></span>
+            <p><a class="right" href="#">Remove</a></p>
+          </div>
 
-          </body>
-        </table>
+        </div>
+      </div>
+    </div>
+{%endfor%}
+  </div>
 </div>
-<div class="row">
-  <a class="btn right amber accent-4" href="{% url 'production' %}">Production</a>
-</div>
-{% endblock %}
+{%endblock%}

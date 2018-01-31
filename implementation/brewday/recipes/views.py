@@ -6,13 +6,14 @@ from django.core.validators import validate_email
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
-from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient, Equipment, Type_Equipment, Production
+from .models import Ingredient, Type_Ingredient, Recipe, Recipe_Ingredient, Equipment, Type_Equipment, Production, BrewDay
 from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.decorators import login_required
 
 def access(request):
     if request.method == 'POST':
@@ -36,6 +37,7 @@ def access(request):
         else:
             message = ''
         return render (request, "login.html",{'message': message,})
+
 
 def register_user(request):
     if request.method  == 'GET':
@@ -69,13 +71,15 @@ def register_user(request):
             return HttpResponseRedirect(reverse('login'))
         else:
             return render(request, "register_user.html",{'erros': erros,})
-
+@login_required
 def home(request):
 	return render(request, "home.html")
+
 
 def index(request):
 	return render(request, "index.html")
 
+@login_required
 def recipes(request):
     malts = Ingredient.objects.filter(type_ingredient_id = 3).filter(user=request.user)
     hops = Ingredient.objects.filter(type_ingredient_id = 1).filter(user=request.user)
@@ -144,9 +148,11 @@ def recipes(request):
         messages.success(request, 'Receita cadastrada')
         return render(request, "register_recipes.html")
 
+@login_required
 def view_ingredients(request):
 	return render(request, "view_ingredients.html")
 
+@login_required
 def register_ingredient_additives(request):
     if request.method == 'GET':
         return render(request, "register_ingredient_additives.html")
@@ -168,7 +174,7 @@ def register_ingredient_additives(request):
         messages.success(request, 'Ingrediente cadastrado')
        # messages.success(request, 'Form submission successful')
         return render(request, "register_ingredient_additives.html")
-
+@login_required
 def register_ingredient_hops(request):
     if request.method  == 'GET':
         return render(request, "register_ingredient_hops.html")
@@ -192,6 +198,7 @@ def register_ingredient_hops(request):
         messages.success(request, 'Ingrediente cadastrado')
         return render(request, "register_ingredient_hops.html")
 
+@login_required
 def register_ingredient_malt(request):
     if request.method  == 'GET':
         return render(request, "register_ingredient_malt.html")
@@ -215,6 +222,7 @@ def register_ingredient_malt(request):
 
         return render(request, "register_ingredient_malt.html")
 
+@login_required
 def register_ingredient_sugar(request):
     if request.method  == 'GET':
         return render(request, "register_ingredient_sugar.html")
@@ -238,6 +246,7 @@ def register_ingredient_sugar(request):
 
         return render(request, "register_ingredient_sugar.html")
 
+@login_required
 def register_ingredient_yeasts(request):
     if request.method  == 'GET':
         return render(request, "register_ingredient_yeasts.html")
@@ -259,9 +268,12 @@ def register_ingredient_yeasts(request):
         ingrediente.save()
         messages.success(request, 'Ingrediente cadastrado')
         return render(request, "register_ingredient_yeasts.html")
+
+@login_required
 def view_equipment(request):
 	return render(request, "view_equipment.html")
 
+@login_required
 def register_equipment_fermenter(request):
     if request.method  == 'GET':
         return render(request, "register_equipment_fermenter.html") #MUDAR LINK HTML
@@ -281,6 +293,7 @@ def register_equipment_fermenter(request):
 
         return render(request, "register_equipment_fermenter.html") #MUDAR LINK HTML
 
+@login_required
 def register_equipment_filter(request):
     if request.method  == 'GET':
         return render(request, "register_equipment_filter.html") #MUDAR LINK HTML
@@ -300,6 +313,7 @@ def register_equipment_filter(request):
 
         return render(request, "register_equipment_filter.html") #MUDAR LINK HTML
 
+@login_required
 def register_equipment_grinder(request):
     if request.method  == 'GET':
         return render(request, "register_equipment_grinder.html") #MUDAR LINK HTML
@@ -319,6 +333,7 @@ def register_equipment_grinder(request):
         conteudo = {'message': 'success'}
         return render(request, "register_equipment_grinder.html", conteudo) #MUDAR LINK HTML
 
+@login_required
 def register_equipment_kettle(request):
     if request.method  == 'GET':
         return render(request, "register_equipment_kettle.html") #MUDAR LINK HTML
@@ -339,17 +354,22 @@ def register_equipment_kettle(request):
         return render(request, "register_equipment_kettle.html", conteudo) #MUDAR LINK HTML
 
 class view_recipes(ListView):
-    model = Recipe
+    def get_queryset(self):        
+        return Recipe.objects.filter(user=self.request.user)
     template_name = 'view_recipes.html'
 
 class IngredientsView(ListView):
-    model = Ingredient
+    #model = Ingredient
+    def get_queryset(self):        
+        return Ingredient.objects.filter(user=self.request.user)
     template_name = 'view_ingredients.html'
 
 class EquipmentsView(ListView):
-    model = Equipment
+    def get_queryset(self):        
+        return Equipment.objects.filter(user=self.request.user)
     template_name = 'view_equipment.html'
 
+@login_required
 def production(request):
     recipes = Recipe.objects.filter(user=request.user)
     equipments = Equipment.objects.filter(user=request.user)
@@ -367,9 +387,9 @@ def production(request):
         for i in ingreds:
             ingredient = Ingredient.objects.get(id=i.ingredient.id)
             if(ingredient.quantity < i.quantity * equip.capacity):
+                erros.append("a")
                 messages.error(request, 'Ingredient ' + ingredient.name + ' has out of stock')
-
-
+            
         if(len(erros)==0):
             for i in ingreds:
                 ingredient = Ingredient.objects.get(id=i.ingredient.id)
@@ -384,16 +404,52 @@ def production(request):
 
         return render(request, "production.html", content)
 
+class ProductionHistory(ListView):
+    def get_queryset(self):
+        return Production.objects.filter(user=self.request.user)
+    template_name = 'production_history.html'
 
-def productionHistory(request):
-	return render(request, "production_history.html")
-
+@login_required
 def brewday(request):
 	return render(request, "brewday.html")
 
+@login_required
 def brewdayResult(request):
-	return render(request, "brewday_result.html")
+    recipesok = []
+    recipes = Recipe.objects.filter(user=request.user)
+    for r in recipes:
+        recipe_ingredients = Recipe_Ingredient.objects.filter(recipe_id=r.id)
+        qtd = 0
+        for i in recipe_ingredients:
+            recipe_stock = Ingredient.objects.get(id=i.ingredient_id)
+            
+            if (recipe_stock.quantity > 0):
+                print(str(recipe_stock.name) +" "+ str(recipe_stock.quantity))
+                qtd_atual = round((recipe_stock.quantity/i.quantity),2)
+                print(recipe_stock.quantity/i.quantity)
+                
+                print(qtd_atual)
+                if i == recipe_ingredients[0]:
+                    
+                    qtd = qtd_atual
+                else:
+                    print(str(qtd_atual) + "/" + str(qtd))
+                    if qtd_atual < qtd:
+                        
+                        qtd = qtd_atual
+            else:
+                qtd = 0
+        if qtd != 0:
+            br = BrewDay()
+            br.quantity = qtd
+            br.recipe_id = r.id
+            br.recipe = Recipe.objects.get(id=r.id)
+            recipesok.append(br)
+            
+    conteudo={"result":recipesok}
+    return render(request, "brewday_result.html", conteudo)
 
+@login_required
 def user(request):
 	return render(request, "user.html")
 
@@ -402,6 +458,7 @@ class RecipeDelete(DeleteView):
     model = Recipe
     success_url = reverse_lazy('view_recipes')
 
+@login_required
 def RecipeEdit(request,pk):
     if request.method  == 'GET':
         recipe = Recipe.objects.get(id=pk)
@@ -484,7 +541,7 @@ class RecipeDetailView(DetailView):
 class EquipmentsEdit(SuccessMessageMixin,UpdateView):
     model = Equipment
     template_name = 'edit_equipments.html'
-    fields = ['name', 'medida', 'capacity', 'type_equipment', 'description']
+    fields = ['name', 'medida', 'capacity', 'type_equipment']
     success_message = 'Equipamento Editado'
     success_url = reverse_lazy('view_equipment')
 

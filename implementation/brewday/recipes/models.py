@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import datetime
 # Create your models here.
 
 class Recipe (models.Model):
@@ -11,7 +11,12 @@ class Recipe (models.Model):
     ingredients = models.ManyToManyField('Ingredient', through='Recipe_Ingredient', through_fields=('recipe','ingredient') , null=True)
     def __str__(self):
         return self.title
-    
+
+class BrewDay():
+    recipe_id = 0
+    quantity = 0
+    equip_id = 0
+
 class Ingredient (models.Model):  # tipo de ingrediente criar 
     user = models.ForeignKey(User)
     YEAR_IN_SCHOOL_CHOICES = (
@@ -42,6 +47,7 @@ class Equipment (models.Model):
         return self.name
 
 class Production (models.Model):
+    date = models.DateField(null=True, default=datetime.date.today)
     user = models.ForeignKey(User)
     quantity_brew = models.FloatField()
     id_recipe = models.ForeignKey('Recipe', null=True)
