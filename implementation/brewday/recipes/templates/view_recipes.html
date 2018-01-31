@@ -5,6 +5,11 @@
   .home {
         background-image: url("{% static "/img/home_fundo.jpg" %}");
         background-size: contain;
+
+  }
+  .imagemcard {
+    height: 400px;
+    width: 400px;
   }
 </style>
 <!-- Formulário -->
@@ -12,9 +17,9 @@
     {% for recipe in object_list %}
     <div class="col s12 m8 offset-m1 l7 offset-l4">
       <div class="card sticky-action">
-        <div class="card">
+        <div class="card small">
           <div class="card-image waves-effect waves-block waves-light">
-            <img src="{% static "/img/fundo04.jpg" %}">
+            <img id="imagemcard" src="{% static "/img/fundo042.jpg" %}">
           </div>
 <!--
           <div class="card-content">

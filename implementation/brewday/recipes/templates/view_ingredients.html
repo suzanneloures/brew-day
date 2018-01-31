@@ -15,7 +15,7 @@
       <div class="card sticky-action">
         <div class="card">
           <div class="card-image waves-effect waves-block waves-light">
-            <img src="{% static "/img/fundo_ingredients.jpeg" %}">
+            <img src="{% static "/img/fundo_ingredients2.jpg" %}">
           </div>
 <!--          <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{ing.name}} - ({{ing.type_ingredient}})<i class="material-icons right">more_vert</i></span>
@@ -35,6 +35,7 @@
             <span class="card-title center amber-text text-darken-4" style="margin-left: 40px;" >{{ing.name}} - ({{ing.type_ingredient}})<i class="material-icons black-text right">close</i></span>
             <p><a class="" href="{% url 'ingredients_edit' pk=ing.id %}">Edit</a></p>
             <p><a class="" href="{% url 'delete_ingredient' pk=ing.id %}">Remove</a></p></br>
+            <p><i>{{equip.description}}</i></p>
           </div>
 
         </div>
