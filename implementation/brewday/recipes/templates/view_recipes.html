@@ -27,10 +27,10 @@
           </div>
 -->
           <div class="card-content">
-            <span class="card-title grey-text text-darken-4">{{recipe.title}}<i class="material-icons right activator">more_vert</i></span>
+            <span class="card-title center amber-text text-darken-4">{{recipe.title}}<i class="material-icons black-text right activator">more_vert</i></span>
           </div>
           <div class="card-reveal center">
-            <span class="card-title center grey-text text-darken-4" style="margin-left: 40px;">{{recipe.title}}<i class="material-icons right">close</i></span></br>
+            <span class="card-title center amber-text text-darken-4" style="margin-left: 40px;">{{recipe.title}}<i class="material-icons black-text right">close</i></span></br>
             <p><a class="" href="{% url 'edit_recipes' pk=recipe.id %}">Edit</a></p>
             <p><a class="" href="{% url 'delete_recipe' pk=recipe.id %}">Remove</a></p></br>
             <!--<p><a class="right" href="{% url 'recipe_view' pk=recipe.id %}">View More</a></p></br>-->

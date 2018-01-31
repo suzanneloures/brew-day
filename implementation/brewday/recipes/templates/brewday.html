@@ -4,25 +4,21 @@
 {% load static%}
 <style>
   .home {
-        background-image: url("{% static "/img/home.jpg" %}");
-        background-size: 600px;
+        background-image: url("{% static "/img/fundo_register.jpg" %}");
+        background-size: contain;
   }
 </style>
 <fieldset class="home">
   <div class="row">
 
     <div class="col s12 m10 offset-m1 l7 offset-l4 card-panel"></br>
-      <p class="flow-text amber-text accent-4 center">BrewDay!</p></br>
-          <p class="center brown-text text-darken-2">Olá Brewer, seja bem vindo a função BrewDay!</p>
+      <h2 class="center amber-text text-accent-4" >BrewDay!</h2></br></br>
+      <p class="center brown-text text-lighten-1">Welcome Brewer, this function allows you to know which recipes you can do right now, using a magic combinacion between your ingredients, recipes and equipments!</p></br></br>
 
-      <div class="row">
-        <div class="center"></br></br>
+      <a type="submit" name="" value="Submit" href="{% url 'brewday_result' %}" class="btn left amber accent-4" style="margin-left: 40%;"/>BrewDay!<a/></br></br>
+      <p class="center amber-text text-darken-3">Ready to Start!?</p><br>
 
-        <a type="submit" name="" value="Submit" href="{% url 'brewday_result' %}" class="btn left amber accent-4" style="margin-left: 40%;"/>BrewDay!<a/></br></br></br>
-        <p class="brown-text text-darken-2">Essa funcionalidade do nosso sistema permite que você, Brewer, saiba quais receitas pode fazer nesse momento, de acordo com seus ingredients, recipes e equipments disponiveis!</p></br>
 
-        </div>
-      </div>
 
 
     </div>
